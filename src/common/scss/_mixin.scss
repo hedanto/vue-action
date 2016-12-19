@@ -12,7 +12,9 @@
   }
 }
 
-
+/**
+  容器
+ */
 @mixin container-fixed($gutter: $grid-gutter-width) {
   margin-right: auto;
   margin-left: auto;
@@ -20,5 +22,29 @@
   padding-right: ceil(($gutter / 2));
   @include clearfix;
 }
+
+/**
+  圆角边框
+ */
+@mixin border-radius($radius:50%) {
+  border-radius: $radius;
+}
+
+;
+
+/**
+  超出范围显示...
+ */
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+@mixin transition ($attr:all,$time:0.5s){
+  transition:$attr $time ;
+}
+
 
 

@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <nav-header></nav-header>
-    <nav-menu ></nav-menu>
+    <biz-layout></biz-layout>
   </div>
 </template>
 
 <script>
-  import header from 'components/header/header.vue';
-  import menu from 'components/menu/menu.vue';
+  import layout from 'components/layout/layout.vue';
 
   export default {
     name: 'app',
     components: {
-      'nav-header': header,
-      'nav-menu': menu
+      'biz-layout': layout
     }
   };
 
@@ -21,4 +18,9 @@
 
 <style lang="scss" rel="stylesheet/scss">
   @import "common/scss/index";
+  body{
+    font-size: 14px;
+    background: #FbFbFb none repeat scroll 0% 0%;
+    background: url(../static/img/bg.jpg) repeat;
+  }
 </style>
