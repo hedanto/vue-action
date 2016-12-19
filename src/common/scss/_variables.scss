@@ -1,0 +1,24 @@
+/*栅格宽度*/
+$grid-gutter-width:         30px !default;
+$header-height:             60px !default;
+$left-menu-bar-width:       200px !default;
+$box-sizing:                border-box;
+
+
+/*屏幕宽度参数*/
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+
+/*容器宽度*/
+$container-sm:               (720px + $grid-gutter-width) !default;
+$container-md:               (940px + $grid-gutter-width) !default;
+$container-lg:               (1140px + $grid-gutter-width) !default;
+
+
+
+
+

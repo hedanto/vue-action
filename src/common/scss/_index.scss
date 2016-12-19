@@ -1,0 +1,41 @@
+@import "variables";
+@import "mixin";
+
+* {
+  box-sizing: $box-sizing;
+}
+
+/*
+  清除浮动
+ */
+.clearfix{
+  @include clearfix;
+}
+/**
+  容器
+ */
+.container {
+  @include container-fixed;
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+/*
+  向左对齐
+ */
+.pull-left{
+  float: left;
+}
+/*
+  向右对齐
+ */
+.pull-right{
+  float: right;
+}
