@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <biz-layout></biz-layout>
+    <!-- 路由出口 -->
+    <!-- 路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import layout from 'components/layout/layout.vue';
-
   export default {
     name: 'app',
     components: {
-      'biz-layout': layout
     }
   };
 
@@ -19,8 +18,6 @@
 <style lang="scss" rel="stylesheet/scss">
   @import "common/scss/index";
   body{
-    font-size: 14px;
-    background: #FbFbFb none repeat scroll 0% 0%;
     background: url(../static/img/bg.jpg) repeat;
   }
 </style>

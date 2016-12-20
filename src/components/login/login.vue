@@ -1,13 +1,90 @@
 <template>
-
+  <section class="login-wrapper">
+    <biz-header :show-info="false"></biz-header>
+    <div class="login-context">
+      <div class="login-container">
+        <div class="login-panel">
+          <div class="login-title">
+            登录
+          </div>
+          <el-form ref="form" :model="form" class="login-form">
+            <el-form-item>
+              <el-input v-model="form.name" placeholder="账号"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-input type="password" v-model="form.password" auto-complete="off" placeholder="密码"></el-input>
+            </el-form-item>
+            <el-checkbox v-model="form.checked" checked style="margin:0px 0px 35px 0px;">记住密码</el-checkbox>
+            <el-form-item class="login-btn-wrapper">
+              <el-button type="primary" >登录</el-button>
+              <el-button>重置</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-
+  import header from '../layout/header/header.vue';
+  export default {
+    data () {
+      return {
+        form: {
+          name: '',
+          password: '',
+          checked: true
+        }
+      };
+    },
+    components: {
+      'biz-header': header
+    }
+  }
+  ;
 </script>
 
-<style lang="sass" rel="stylesheet/scss" scoped>
-
+<style lang="scss" rel="stylesheet/scss" scoped>
+  @import "../../common/scss/index";
+  .login-wrapper {
+    background: #fff;
+    overflow: hidden;
+    .login-context {
+      min-height: 415px;
+      margin-top: 60px;
+      background-image: url("img/login-bg.jpg");
+      background-repeat: no-repeat;
+      background-position: center 0;
+      .login-container {
+        @extend .container;
+        background: #f5f5f5;
+        position: relative;
+        .login-panel {
+          position: absolute;
+          top: 50px;
+          right: 100px;
+          box-shadow: 2px 2px 5px rgb(204, 204, 204);
+          height: 300px;
+          width: 350px;
+          background: #fff;
+          .login-title {
+            height: 50px;
+            line-height: 50px;
+            padding-left: 30px;
+            font-size: 20px;
+            border-bottom: 1px solid $border-color;
+          }
+          .login-form {
+            padding: 30px 30px;
+            .login-btn-wrapper{
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>
 
 

@@ -6,7 +6,7 @@
         <biz-menu></biz-menu>
       </div>
       <div class="main-content">
-
+        <router-view></router-view>
       </div>
     </div>
   </section>

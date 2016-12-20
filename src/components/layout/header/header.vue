@@ -5,14 +5,14 @@
         <img src="./img/logo.png">
         <span>DEMO</span>
       </div>
-      <div class="nav-bar">
+      <div class="nav-bar" v-if="showInfo">
         <ul>
           <li><a>业务办理</a></li>
           <li><a class="active">个人中心</a></li>
           <li><a>安全中心</a></li>
         </ul>
       </div>
-      <div class="account">
+      <div class="account" v-if="showInfo">
         <img src="./img/male.png">
         <span class="name">
           管理员&nbsp;&nbsp;&nbsp;
@@ -24,6 +24,11 @@
 </template>
 <script>
   export default {
+    props: {
+      showInfo: {
+        default: true
+      }
+    },
     data () {
       return {
         msg: '这是头'
@@ -37,6 +42,7 @@
   @import "../../../common/scss/index";
 
   .header-wrapper {
+    z-index: 1;
     $img-size:44px;
     $img-margin:($header-height - $img-size - 10px)/2 0px;
     height: $header-height;
