@@ -1,7 +1,7 @@
 <template>
   <section class="login-wrapper">
-    <biz-header :show-info="false"></biz-header>
-    <div class="login-context">
+    <biz-header :show-info="false" ></biz-header>
+    <div class="login-context" ref="loginContext">
       <div class="login-container">
         <div class="login-panel">
           <div class="login-title">
@@ -38,8 +38,22 @@
         }
       };
     },
+    methods: {
+      setLoginHeight () {
+        let h = document.documentElement.clientHeight;
+        let loginContext = this.$refs.loginContext;
+        loginContext.style.height = (h - loginContext.offsetTop) + 'px';
+      }
+    },
     components: {
       'biz-header': header
+    },
+    mounted () {
+      this.setLoginHeight();
+      let _this = this;
+      window.onresize = function () {
+        _this.setLoginHeight();
+      };
     }
   }
   ;
@@ -51,11 +65,9 @@
     background: #fff;
     overflow: hidden;
     .login-context {
-      min-height: 415px;
+      min-height: 480px;
       margin-top: 60px;
-      background-image: url("img/login-bg.jpg");
-      background-repeat: no-repeat;
-      background-position: center 0;
+      background: url("img/login-bg.jpg") no-repeat center 0;
       .login-container {
         @extend .container;
         background: #f5f5f5;
