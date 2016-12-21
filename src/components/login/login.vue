@@ -16,7 +16,7 @@
             </el-form-item>
             <el-checkbox v-model="form.checked" checked style="margin:0px 0px 35px 0px;">记住密码</el-checkbox>
             <el-form-item class="login-btn-wrapper">
-              <el-button type="primary" >登录</el-button>
+              <el-button type="primary" @click="send">登录</el-button>
               <el-button>重置</el-button>
             </el-form-item>
           </el-form>
@@ -28,6 +28,7 @@
 
 <script>
   import header from '../layout/header/header.vue';
+
   export default {
     data () {
       return {
@@ -43,6 +44,9 @@
         let h = document.documentElement.clientHeight;
         let loginContext = this.$refs.loginContext;
         loginContext.style.height = (h - loginContext.offsetTop) + 'px';
+      },
+      send () {
+       // this.$http.post('http://192.168.1.111/experiencer/dev/resources/data.json');
       }
     },
     components: {
@@ -74,7 +78,7 @@
         position: relative;
         .login-panel {
           position: absolute;
-          top: 50px;
+          top: 100px;
           right: 100px;
           box-shadow: 2px 2px 5px rgb(204, 204, 204);
           height: 300px;
