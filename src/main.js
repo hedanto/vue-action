@@ -5,8 +5,9 @@ import App from './App';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import router from 'common/js/router';
-import 'common/js/http';
+// import 'common/js/http';
 import store from './store';
+import './api';
 
 Vue.use(ElementUI);
 

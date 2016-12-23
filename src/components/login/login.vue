@@ -46,7 +46,7 @@
         loginContext.style.height = (h - loginContext.offsetTop) + 'px';
       },
       send () {
-       // this.$http.post('http://192.168.1.111/experiencer/dev/resources/data.json');
+        this.$http.post('/api/common/context-data/get-context-data');
       }
     },
     components: {
@@ -59,8 +59,7 @@
         _this.setLoginHeight();
       };
     }
-  }
-  ;
+  };
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
