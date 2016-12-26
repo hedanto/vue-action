@@ -35,7 +35,7 @@
     },
     methods: {
       logout () {
-        this.$store.dispatch('logout');
+        this.$api.logout();
       }
     }
   };

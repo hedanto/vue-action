@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueResource from 'vue-resource';
 import {MsgType} from '../common/js/constants';
 import router from 'common/js/router';
+import Store from '../store';
 import {Notification} from 'element-ui';
 
 let config = require('../../config');
@@ -41,7 +42,6 @@ Vue.http.options.credentials = true;
 Vue.http.interceptors.push((request, next) => {
   // 生成正在的url
   request.url = genPath(request.url);
-  console.info(request);
   request.credentials = true;
 
   // 这里对请求体进行处理
@@ -49,6 +49,8 @@ Vue.http.interceptors.push((request, next) => {
     // 这里可以对响应的结果进行处理
     let ret = response.body;
     if (ret.type && ret.type === MsgType.TOLOGIN) {
+      // 注销登录状态
+      Store.dispatch('logout');
       router.push('login');
       return {...response.body, ok: false};
     } else if (ret.show === true) {

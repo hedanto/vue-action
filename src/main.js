@@ -6,9 +6,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import router from 'common/js/router';
 import store from './store';
-import './api';
+import api from './api';
 
 Vue.use(ElementUI);
+Vue.use(api);
 
 /* eslint-disable no-new */
 new Vue({

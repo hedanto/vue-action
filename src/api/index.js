@@ -1,9 +1,10 @@
 import { http } from 'vue';
 import './api-cofing';
+import _install from './install';
 import { HttpPrefix } from '../common/js/constants';
-import test from './modules/test.api';
+import modules from './modules';
 
-export default {
+const api = {
   login (data) { // 登录
     let url = HttpPrefix.API + '/auth/login';
     return http.post(url, data).then(resp => {
@@ -22,6 +23,21 @@ export default {
       return resp.body;
     });
   },
-  test
+  ...modules
 };
 
+const install = (Vue) => {
+  if (install.installed) {
+    return;
+  }
+  _install(Vue, api);
+};
+
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(install);
+}
+
+export default {
+  api,
+  install
+};
