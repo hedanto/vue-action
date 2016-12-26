@@ -1,18 +1,25 @@
-import Vue from 'vue';
-import VueResource from 'vue-resource';
-import {genPath} from './api-cofing';
+import { http } from 'vue';
+import './api-cofing';
+import { HttpPrefix } from '../common/js/constants';
 
-Vue.use(VueResource);
+export default {
+  login (data) { // 登录
+    let url = HttpPrefix.API + '/auth/login';
+    return http.post(url, data).then(resp => {
+      return resp.body;
+    });
+  },
+  logout () { // 注销
+    let url = HttpPrefix.API + '/auth/logout';
+    return http.post(url).then(resp => {
+      return resp.body;
+    });
+  },
+  getContextData () { // 获取上下文信息
+    let url = HttpPrefix.API + '/common/context-data/get-context-data';
+    return http.post(url).then(resp => {
+      return resp.body;
+    });
+  }
+};
 
-// HTTP相关
-Vue.http.options.crossOrigin = true;
-Vue.http.options.credentials = true;
-
-Vue.http.interceptors.push((request, next) => {
-  request.url = genPath(request.url);
-
-  // 这里对请求体进行处理
-  next((response) => {
-    // 这里可以对响应的结果进行处理
-  });
-});

@@ -9,12 +9,12 @@
           </div>
           <el-form ref="form" :model="form" class="login-form">
             <el-form-item>
-              <el-input v-model="form.name" placeholder="账号"></el-input>
+              <el-input v-model="form.userName" placeholder="账号"></el-input>
             </el-form-item>
             <el-form-item>
               <el-input type="password" v-model="form.password" auto-complete="off" placeholder="密码"></el-input>
             </el-form-item>
-            <el-checkbox v-model="form.checked" checked style="margin:0px 0px 35px 0px;">记住密码</el-checkbox>
+            <el-checkbox v-model="form.rememberMe" checked style="margin:0px 0px 35px 0px;">记住密码</el-checkbox>
             <el-form-item class="login-btn-wrapper">
               <el-button type="primary" @click="send">登录</el-button>
               <el-button>重置</el-button>
@@ -28,14 +28,15 @@
 
 <script>
   import header from '../layout/header/header.vue';
+  import * as types from 'store/mutation-types';
 
   export default {
     data () {
       return {
         form: {
-          name: '',
+          userName: '',
           password: '',
-          checked: true
+          rememberMe: true
         }
       };
     },
@@ -46,7 +47,13 @@
         loginContext.style.height = (h - loginContext.offsetTop) + 'px';
       },
       send () {
-        this.$http.post('/api/common/context-data/get-context-data');
+        this.$store.dispatch('login', this.form)
+          .then(ret => {
+            if (ret) {
+              this.$router.push('home');
+            }
+          }
+        );
       }
     },
     components: {

@@ -10,3 +10,11 @@ export const MsgType = {
   TOLOGIN: 'tologin', // 跳转到登录页面
   RELOAD: 'reload' // 刷新
 };
+
+/**
+ * 请求的前缀
+ * @type {{API: string}}
+ */
+export const HttpPrefix = {
+  API: '/api'
+}

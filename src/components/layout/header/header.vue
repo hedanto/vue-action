@@ -17,6 +17,7 @@
         <span class="name">
           管理员&nbsp;&nbsp;&nbsp;
           <i class="el-icon-arrow-down"></i>
+          | <button @click="logout">退出</button>
         </span>
       </div>
     </div>
@@ -30,9 +31,12 @@
       }
     },
     data () {
-      return {
-        msg: '这是头'
-      };
+      return {};
+    },
+    methods: {
+      logout () {
+        this.$store.dispatch('logout');
+      }
     }
   };
 

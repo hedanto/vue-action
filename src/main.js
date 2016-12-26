@@ -5,7 +5,6 @@ import App from './App';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import router from 'common/js/router';
-// import 'common/js/http';
 import store from './store';
 import './api';
 
@@ -22,4 +21,4 @@ new Vue({
 
 // Vue.http.jsonp('http://192.168.1.111/experiencer/dev/resources/data.json');
 
-router.push('/login');
+router.push('/home');
