@@ -11,6 +11,7 @@ export const login = ({commit}, param) => {
   return new Promise((resolve, reject) => {
     api.login(data).then(ret => {
       if (ret.type === MsgType.SUCCESS) {
+        api.test.find();
         api.getContextData().then(ret2 => {
           commit(types.SET_LOGIN_STATE, true);
           commit(types.SET_CONTEXT_DATA, ret2);

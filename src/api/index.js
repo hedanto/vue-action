@@ -1,6 +1,7 @@
 import { http } from 'vue';
 import './api-cofing';
 import { HttpPrefix } from '../common/js/constants';
+import test from './modules/test.api';
 
 export default {
   login (data) { // 登录
@@ -20,6 +21,7 @@ export default {
     return http.post(url).then(resp => {
       return resp.body;
     });
-  }
+  },
+  test
 };
 

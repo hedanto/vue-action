@@ -28,7 +28,6 @@
 
 <script>
   import header from '../layout/header/header.vue';
-  import * as types from 'store/mutation-types';
 
   export default {
     data () {

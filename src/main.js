@@ -19,6 +19,4 @@ new Vue({
   store // （缩写）相当于 store:store
 });
 
-// Vue.http.jsonp('http://192.168.1.111/experiencer/dev/resources/data.json');
-
 router.push('/home');

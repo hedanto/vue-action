@@ -17,4 +17,4 @@ export const MsgType = {
  */
 export const HttpPrefix = {
   API: '/api'
-}
+};

@@ -35,18 +35,22 @@ Vue.use(VueResource);
 // Vue.http.options.crossOrigin = true;
 // Vue.http.options.credentials = true;
 Vue.http.options.emulateJSON = true;
+Vue.http.options.credentials = true;
 
 // 拦截器
 Vue.http.interceptors.push((request, next) => {
   // 生成正在的url
   request.url = genPath(request.url);
+  console.info(request);
+  request.credentials = true;
 
   // 这里对请求体进行处理
   next((response) => {
     // 这里可以对响应的结果进行处理
     let ret = response.body;
-    if (ret.type === MsgType.TOLOGIN) {
+    if (ret.type && ret.type === MsgType.TOLOGIN) {
       router.push('login');
+      return {...response.body, ok: false};
     } else if (ret.show === true) {
       Notification({
         title: ret.title,
