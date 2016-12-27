@@ -11,7 +11,6 @@ export const login = ({commit}, param) => {
   return new Promise((resolve, reject) => {
     Vue.api.login(data).then(ret => {
       if (ret.type === MsgType.SUCCESS) {
-        Vue.api.test.find();
         Vue.api.getContextData().then(ret2 => {
           commit(types.SET_LOGIN_STATE, true);
           commit(types.SET_CONTEXT_DATA, ret2);

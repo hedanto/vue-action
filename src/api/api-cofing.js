@@ -7,6 +7,10 @@ import {Notification} from 'element-ui';
 
 let config = require('../../config');
 
+if (process.env.NODE_ENV === 'development' && config.dev.mockData) {
+  require('./mock_data');
+}
+
 let apiRootMap = {};
 
 if (process.env.NODE_ENV === 'production' && config.build.env.apiRootMap) {
@@ -48,6 +52,12 @@ Vue.http.interceptors.push((request, next) => {
   next((response) => {
     // 这里可以对响应的结果进行处理
     let ret = response.body;
+
+    if (process.env.NODE_ENV === 'development' && config.dev.mockData && typeof ret === 'string') {
+      ret = JSON.parse(ret);
+      response.body = ret;
+    }
+
     if (ret.type && ret.type === MsgType.TOLOGIN) {
       // 注销登录状态
       Store.dispatch('logout');

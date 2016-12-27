@@ -4,10 +4,11 @@ import _install from './install';
 import { HttpPrefix } from '../common/js/constants';
 import modules from './modules';
 
-const api = {
+export const api = {
   login (data) { // 登录
     let url = HttpPrefix.API + '/auth/login';
     return http.post(url, data).then(resp => {
+      console.info(resp);
       return resp.body;
     });
   },

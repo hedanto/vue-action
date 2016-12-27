@@ -21,6 +21,7 @@ module.exports = {
     port: 3030,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    mockData:true,// 是否开启模拟数据
     proxyTable: {
       '/api': {
         target: 'http://192.168.1.111',//api代理服务器地址http://ip:port

@@ -18,6 +18,6 @@
 <style lang="scss" rel="stylesheet/scss">
   @import "common/scss/index";
   body{
-    background: url(../static/img/bg.jpg) repeat;
+    background: url(common/img/bg.jpg) repeat;
   }
 </style>

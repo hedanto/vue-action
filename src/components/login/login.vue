@@ -43,7 +43,9 @@
       setLoginHeight () {
         let h = document.documentElement.clientHeight;
         let loginContext = this.$refs.loginContext;
-        loginContext.style.height = (h - loginContext.offsetTop) + 'px';
+        if (loginContext) {
+          loginContext.style.height = (h - loginContext.offsetTop) + 'px';
+        }
       },
       send () {
         this.$store.dispatch('login', this.form)

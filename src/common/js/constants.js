@@ -18,3 +18,13 @@ export const MsgType = {
 export const HttpPrefix = {
   API: '/api'
 };
+
+/**
+ * 系统模式
+ * @type {{DEVELOPMENT: string, PRODUCTION: string, TEST: string}}
+ */
+export const SystemMode = {
+  DEVELOPMENT: 'development',
+  PRODUCTION: 'production',
+  TEST: 'test'
+};
