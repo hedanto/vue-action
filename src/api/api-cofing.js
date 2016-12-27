@@ -37,8 +37,6 @@ const genPath = (path) => {
 Vue.use(VueResource);
 
 // HTTP相关
-// Vue.http.options.crossOrigin = true;
-// Vue.http.options.credentials = true;
 Vue.http.options.emulateJSON = true;
 Vue.http.options.credentials = true;
 
@@ -53,6 +51,7 @@ Vue.http.interceptors.push((request, next) => {
     // 这里可以对响应的结果进行处理
     let ret = response.body;
 
+    // 如果是模拟数据，把字符串转换成对象
     if (process.env.NODE_ENV === 'development' && config.dev.mockData && typeof ret === 'string') {
       ret = JSON.parse(ret);
       response.body = ret;

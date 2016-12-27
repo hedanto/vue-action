@@ -17,7 +17,94 @@ Mock.mock(/\/common\/context-data\/get-context-data/, {
   user: {
     userName: '小明',
     oginName: '0000001',
-    id: '1'
+    id: '1',
+    menuTree: [
+      {
+        id: '1000',
+        resName: '业务办理',
+        resCode: '1000',
+        resValue: 'home.project.config',
+        checked: true,
+        params: {},
+        children: [
+          {
+            id: '1100',
+            resName: '档案信息管理',
+            resCode: '1100',
+            resValue: 'home.project.config',
+            checked: true,
+            children: [
+              {
+                id: '1101',
+                resName: '档案信息录入',
+                resCode: '0001',
+                resValue: 'home.project.config',
+                checked: true,
+                children: []
+              },
+              {
+                id: '1102',
+                resName: '档案信息维护',
+                resCode: '0001',
+                resValue: 'home.project.config',
+                checked: true,
+                children: []
+              }
+            ]
+          },
+          {
+            id: '1200',
+            resName: '用户信息管理',
+            resCode: '1100',
+            resValue: 'home.project.config',
+            checked: true,
+            children: [
+              {
+                id: '1201',
+                resName: '用户信息录入',
+                resCode: '0001',
+                resValue: 'home.project.config',
+                checked: true,
+                children: []
+              },
+              {
+                id: '1202',
+                resName: '用户记录查询',
+                resCode: '0001',
+                resValue: 'home.project.config',
+                checked: true,
+                children: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: '2000',
+        resName: '个人信息',
+        resCode: '2000',
+        resValue: 'home.project.config',
+        checked: true,
+        children: [
+          {
+            id: '2100',
+            resName: '个人信息',
+            resCode: '1100',
+            resValue: 'home.project.config',
+            checked: true,
+            children: []
+          },
+          {
+            id: '2100',
+            resName: '消息提醒',
+            resCode: '2100',
+            resValue: 'home.project.config',
+            checked: true,
+            children: []
+          }
+        ]
+      }
+    ]
   }
 });
 

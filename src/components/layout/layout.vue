@@ -39,7 +39,7 @@
     margin-bottom: 30px;
     min-height: 700px;
     padding: 0px;
-    @include border-radius(5px);
+    @include border-radius(0px);
     > .main-left {
       display: table-cell;
       border-right: 1px solid $border-color;

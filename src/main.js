@@ -19,5 +19,4 @@ new Vue({
   router, // （缩写）相当于 router:router
   store // （缩写）相当于 store:store
 });
-
 router.push('/home');

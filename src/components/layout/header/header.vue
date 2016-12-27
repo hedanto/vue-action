@@ -7,9 +7,11 @@
       </div>
       <div class="nav-bar" v-if="showInfo">
         <ul>
-          <li><a>业务办理</a></li>
-          <li><a class="active">个人中心</a></li>
-          <li><a>安全中心</a></li>
+          <li v-for="item in menus">
+            <router-link active-class="active" to="/foo">{{item.resName}}</router-link>
+          </li>
+          <!--<li><a class="active">个人中心</a></li>
+          <li><a>安全中心</a></li>-->
         </ul>
       </div>
       <div class="account" v-if="showInfo">
@@ -32,6 +34,11 @@
     },
     data () {
       return {};
+    },
+    computed: {
+      menus () {
+        return this.$store.getters.getFirstMenus;
+      }
     },
     methods: {
       logout () {
