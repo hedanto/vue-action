@@ -12,8 +12,8 @@ const state = {
   isLogin: false,
   constextData: {},
   currentUser: null,
-  menus: null,
-  subMenu: null
+  menus: [],
+  curMenu: []
 };
 
 export default new Vuex.Store({

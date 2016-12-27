@@ -1,6 +1,5 @@
 <template>
   <section>
-    <biz-header></biz-header>
     <div class="main-wrapper">
       <div class="main-left">
         <biz-menu></biz-menu>
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-  import header from 'components/layout/header/header.vue';
   import menu from 'components/layout/menu/menu.vue';
 
   export default {
@@ -21,7 +19,6 @@
       return {};
     },
     components: {
-      'biz-header': header,
       'biz-menu': menu
     }
   };

@@ -6,5 +6,11 @@ export default {
   },
   [types.SET_CONTEXT_DATA] (state, value) {
     state.constextData = value;
+  },
+  [types.SET_MENUS] (state, value) {
+    state.menus = value;
+  },
+  [types.SET_CUR_MENU] (state, value) {
+    state.curMenu = value;
   }
 };

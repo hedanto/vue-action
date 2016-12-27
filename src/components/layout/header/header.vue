@@ -6,12 +6,10 @@
         <span>DEMO</span>
       </div>
       <div class="nav-bar" v-if="showInfo">
-        <ul>
+        <ul ref="headerNav">
           <li v-for="item in menus">
-            <router-link active-class="active" to="/foo">{{item.resName}}</router-link>
+            <router-link active-class="active"  :to="item.resValue">{{item.resName}}</router-link>
           </li>
-          <!--<li><a class="active">个人中心</a></li>
-          <li><a>安全中心</a></li>-->
         </ul>
       </div>
       <div class="account" v-if="showInfo">
@@ -26,6 +24,7 @@
   </header>
 </template>
 <script>
+  import $ from 'jquery';
   export default {
     props: {
       showInfo: {
@@ -37,12 +36,22 @@
     },
     computed: {
       menus () {
-        return this.$store.getters.getFirstMenus;
+        return this.$store.state.menus;
       }
     },
     methods: {
       logout () {
         this.$api.logout();
+      }
+    },
+    mounted () {
+      let headerNav = this.$refs.headerNav;
+      if (headerNav) {
+        let $active = $(headerNav).find('li > a.active');
+        if ($active.length === 0 && this.menus.length !== 0) {
+          let firstLinkMenus = this.$store.getters.getFirstLinkMenus;
+          this.$router.push(firstLinkMenus.resValue);
+        }
       }
     }
   };

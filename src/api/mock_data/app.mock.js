@@ -23,7 +23,7 @@ Mock.mock(/\/common\/context-data\/get-context-data/, {
         id: '1000',
         resName: '业务办理',
         resCode: '1000',
-        resValue: 'home.project.config',
+        resValue: '/home/biz',
         checked: true,
         params: {},
         children: [
@@ -31,14 +31,14 @@ Mock.mock(/\/common\/context-data\/get-context-data/, {
             id: '1100',
             resName: '档案信息管理',
             resCode: '1100',
-            resValue: 'home.project.config',
+            resValue: '',
             checked: true,
             children: [
               {
                 id: '1101',
                 resName: '档案信息录入',
                 resCode: '0001',
-                resValue: 'home.project.config',
+                resValue: '/home/biz/archives-input',
                 checked: true,
                 children: []
               },
@@ -46,7 +46,7 @@ Mock.mock(/\/common\/context-data\/get-context-data/, {
                 id: '1102',
                 resName: '档案信息维护',
                 resCode: '0001',
-                resValue: 'home.project.config',
+                resValue: '/home/biz/archives-mgt',
                 checked: true,
                 children: []
               }
@@ -81,7 +81,7 @@ Mock.mock(/\/common\/context-data\/get-context-data/, {
       },
       {
         id: '2000',
-        resName: '个人信息',
+        resName: '个人中心',
         resCode: '2000',
         resValue: 'home.project.config',
         checked: true,

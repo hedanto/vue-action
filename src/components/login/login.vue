@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import header from '../layout/header/header.vue';
+  import header from 'components/layout/header/header.vue';
 
   export default {
     data () {
@@ -51,7 +51,9 @@
         this.$store.dispatch('login', this.form)
           .then(ret => {
             if (ret) {
-              this.$router.push('home');
+              let firstLinkMenus = this.$store.getters.getFirstLinkMenus;
+              this.$router.push(firstLinkMenus.resValue);
+              // this.$router.push('home');
             }
           }
         );

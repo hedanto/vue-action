@@ -3,13 +3,22 @@ export const getLoginState = state => {
   return state.isLogin;
 };
 
-// 获取一级菜单
-export const getFirstMenus = state => {
-  let menus = state.constextData.user.menuTree;
-  let firstMenus = menus.filter((item) => {
-    if (item.checked) {
+// 获取第一个要触发的菜单
+export const getFirstLinkMenus = state => {
+  return getFirstLinkMenusFun(state.menus);
+};
+
+function getFirstLinkMenusFun (menus) {
+  let firstLinkMenu = null;
+  if (!(menus && menus.length > 0)) {
+    return firstLinkMenu;
+  }
+  for (let i = 0, len = menus.length; i < len; i++) {
+    let item = menus[i];
+    if (item.children && item.children.length > 0) {
+      return getFirstLinkMenusFun(item.children);
+    } else if (item.resValue) {
       return item;
     }
-  });
-  return firstMenus;
-};
+  }
+}
