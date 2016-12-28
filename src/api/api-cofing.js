@@ -60,7 +60,7 @@ Vue.http.interceptors.push((request, next) => {
     if (ret.type && ret.type === MsgType.TOLOGIN) {
       // 注销登录状态
       Store.dispatch('logout');
-      router.push('login');
+      router.push({name: 'login'});
       return {...response.body, ok: false};
     } else if (ret.show === true) {
       Notification({

@@ -1,20 +1,18 @@
 <template>
   <div class="menu-wrapper">
     <ul>
-      <li class="menu-item">
-        <a>菜单1</a>
-        <ul class="sub-menu-item">
-          <li><a>子菜单1</a></li>
-          <li><a>子菜单2</a></li>
-          <li><a>子菜单3</a></li>
-        </ul>
-      </li>
-      <li class="menu-item">
-        <a>菜单1</a>
-        <ul class="sub-menu-item">
-          <li><a class="active">子菜单1</a></li>
-          <li><a>子菜单2</a></li>
-          <li><a>子菜单3</a></li>
+      <li class="menu-item" v-for="item in subMenus">
+        <a v-if = '!item.stateName' class="disabled">{{item.resName}}</a>
+        <router-link  v-if = 'item.stateName' active-class="active"  :to="{name: item.stateName, params: item.stateParams}">
+          {{item.resName}}
+        </router-link>
+        <ul class="sub-menu-item" v-for="subItem in item.children ">
+          <li>
+            <a v-if = '!subItem.stateName' class="disabled"> {{subItem.resName}}</a>
+            <router-link  v-if = 'subItem.stateName' active-class="active"  :to="{name: subItem.stateName, params: subItem.stateParams}">
+              {{subItem.resName}}
+            </router-link>
+          </li>
         </ul>
       </li>
     </ul>
@@ -25,6 +23,11 @@
   export default {
     data () {
       return {};
+    },
+    computed: {
+      subMenus () {
+        return this.$store.state.curMenu.children;
+      }
     }
   };
 </script>
@@ -35,28 +38,19 @@
   .menu-wrapper {
     $menu-padding-left: 30px;
     > ul > li.menu-item {
-      padding: 6px 0px;
-      border-top: 1px solid $border-color;
-      > a {
-        color: $font-color-light !important;
+      &.item-padding {
+        padding: 6px 0px;
       }
+      border-top: 1px solid $border-color;
       &:first-child {
         margin-top: 15px;
         border-top: 0px solid $border-color;
       }
       .sub-menu-item {
         a {
-          padding-left: $menu-padding-left * 2;
+          padding-left: $menu-padding-left * 2 - 3px;
           cursor: pointer;
           @include transition;
-          &:hover {
-            background: $dark-white;
-          }
-          &.active{
-            background: $dark-white;
-            border-left: 3px solid $primary-color;
-            padding-left: 57px;
-          }
         }
       }
     }
@@ -68,7 +62,19 @@
       @include text-ellipsis;
       display: block;
       text-decoration: none;
-      padding-left: $menu-padding-left;
+      padding-left: $menu-padding-left - 3px;
+      border-left: 3px solid #fff;
+      &.active{
+        background: $dark-white;
+        border-left: 3px solid $primary-color;
+      }
+      &.disabled{
+        color: $font-color-light !important;
+      }
+      &:hover {
+        background: $dark-white;
+        border-left-color: $dark-white;
+      }
     }
 
   }

@@ -5,7 +5,7 @@ export default {
     state.isLogin = value;
   },
   [types.SET_CONTEXT_DATA] (state, value) {
-    state.constextData = value;
+    state.contextData = value;
   },
   [types.SET_MENUS] (state, value) {
     state.menus = value;

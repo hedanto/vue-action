@@ -1,11 +1,18 @@
+/**
+ * 相关配置请查阅vue-router的文档，https://router.vuejs.org/zh-cn/
+ * 注意：1、要求一定要配置name,命名规则按照层次用'.'分开，比如路由1的name：'home',它的子节点的name: 'home.xxx'
+ *      2、desc 不是vue-router的配置，是自动定义的，主要用来描述当前路由
+ * @type {[*]}
+ */
 const routes = [
   {
-    cnName: '',
+    desc: '',
+    name: '',
     path: '/',
     redirect: '/home'
   },
   {
-    cnName: '主页',
+    desc: '主页',
     path: '/home',
     name: 'home',
     component (resolve) {
@@ -14,7 +21,7 @@ const routes = [
     meta: { requiresAuth: true },
     children: [
       {
-        cnName: '业务办理',
+        desc: '业务办理',
         name: 'home.biz',
         path: 'biz',
         component (resolve) {
@@ -22,7 +29,7 @@ const routes = [
         },
         children: [
           {
-            cnName: '档案信息录入',
+            desc: '档案信息录入',
             name: 'home.biz.archives-input',
             path: 'archives-input',
             component (resolve) {
@@ -30,7 +37,7 @@ const routes = [
             }
           },
           {
-            cnName: '档案信息维护',
+            desc: '档案信息维护',
             name: 'home.biz.archives-mgt',
             path: 'archives-mgt',
             component (resolve) {
@@ -40,7 +47,7 @@ const routes = [
         ]
       },
       {
-        cnName: '个人中心',
+        desc: '个人中心',
         name: 'home.personal',
         path: 'personal',
         component (resolve) {
@@ -48,7 +55,7 @@ const routes = [
         },
         children: [
           {
-            cnName: '个人信息',
+            desc: '个人信息',
             name: 'home.personal.personal-info',
             path: 'archives-input',
             component (resolve) {
@@ -56,7 +63,7 @@ const routes = [
             }
           },
           {
-            cnName: '个人消息',
+            desc: '个人消息',
             name: 'home.personal.personal-msg',
             path: 'personal-msg',
             component (resolve) {
@@ -68,7 +75,7 @@ const routes = [
     ]
   },
   {
-    cnName: '登录',
+    desc: '登录',
     path: '/login',
     name: 'login',
     component (resolve) {

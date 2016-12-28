@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import routes from '../config/routes-config';
 import store from '../../store';
 import utils from './utils';
+import * as types from '../../store/mutation-types';
 
 Vue.use(VueRouter);
 
@@ -15,7 +16,7 @@ router.beforeEach((to, from, next) => {
   // 判断是否存在需要授权的路由
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!store.state.isLogin) {
-      next('/login');
+      next({name: 'login'});
     }
   }
 
@@ -29,10 +30,34 @@ router.beforeEach((to, from, next) => {
   }
 
   if (firstLinkMenus) {
+    store.commit(types.SET_CUR_MENU, getTopMenu(firstLinkMenus.stateName));
     next({name: firstLinkMenus.stateName, params: firstLinkMenus.stateParams});
   } else {
+    store.commit(types.SET_CUR_MENU, getTopMenu(to.name));
     next();
   }
 });
+
+// 获取当前菜单
+function getTopMenu (value) {
+  let menu = {};
+  if (value) {
+    let indexs = value.split('.');
+    let indexStr = '';
+    for (let i = 0, len = indexs.length; i < len; i++) {
+      if (indexStr === '') {
+        indexStr = indexs[i];
+      } else {
+        indexStr += '.' + indexs[i];
+      }
+      console.info(indexStr);
+      if (store.state.menusMap[indexStr]) {
+        menu = store.state.menusMap[indexStr];
+        break;
+      }
+    }
+  }
+  return menu;
+}
 
 export default router;

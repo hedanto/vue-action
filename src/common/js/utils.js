@@ -260,7 +260,6 @@ export default {
    * @returns {*}
    */
   getFirstLinkMenusFun (menus) {
-    console.info(menus);
     let firstLinkMenu = null;
     if (!(menus && menus.length > 0)) {
       return firstLinkMenu;

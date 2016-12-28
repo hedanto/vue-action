@@ -10,11 +10,11 @@ const debug = process.env.NODE_ENV !== 'production';
 
 const state = {
   isLogin: false,
-  constextData: {},
+  contextData: {},
   currentUser: null,
   menus: [],
   menusMap: {},
-  curMenu: []
+  curMenu: {}
 };
 
 export default new Vuex.Store({

@@ -55,14 +55,14 @@ Mock.mock(/\/common\/context-data\/get-context-data/, {
             id: '1200',
             resName: '用户信息管理',
             resCode: '1100',
-            resValue: 'home.project.config',
+            resValue: '',
             checked: true,
             children: [
               {
                 id: '1201',
                 resName: '用户信息录入',
                 resCode: '0001',
-                resValue: 'home.project.config',
+                resValue: '',
                 checked: true,
                 children: []
               },
@@ -70,7 +70,7 @@ Mock.mock(/\/common\/context-data\/get-context-data/, {
                 id: '1202',
                 resName: '用户记录查询',
                 resCode: '0001',
-                resValue: 'home.project.config',
+                resValue: '',
                 checked: true,
                 children: []
               }
