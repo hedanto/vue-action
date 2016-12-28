@@ -13,6 +13,7 @@ const state = {
   constextData: {},
   currentUser: null,
   menus: [],
+  menusMap: {},
   curMenu: []
 };
 

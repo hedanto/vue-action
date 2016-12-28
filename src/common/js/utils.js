@@ -203,5 +203,75 @@ export default {
       d = md5_AddUnsigned(d, DD)
     }
     return (md5_WordToHex(a) + md5_WordToHex(b) + md5_WordToHex(c) + md5_WordToHex(d)).toLocaleUpperCase()
+  },
+  /**
+   * 获取选中的菜单
+   * @param menus
+   * @returns {Array}
+   */
+  findCheckedMenus (menus,map) {
+    let menusTemp = [];
+    if (menus && menus.length > 0) {
+      menusTemp = [...menus];
+      menusTemp = menusTemp.filter(item => {
+        return item.checked;
+      }).map( itemTemp => {
+        let item = {...itemTemp};
+        item.children = this.findCheckedMenus(item.children, map);
+        let state = this.getState(item.resValue);
+        item.stateName = state.name;
+        item.stateParams = state.params;
+
+        if (item.stateName && map) {
+          map[item.stateName] = item;
+        }
+
+        return item;
+      });
+    }
+    return menusTemp;
+  },
+  /**
+   * 解析路由的值
+   * @param routerName
+   * @returns {{}}
+   */
+  getState (routerName) {
+    let ret = {};
+    let regx = /\(\{\S*\}\)/;
+    if (routerName && regx.test(routerName)) {
+      let rs = regx.exec(routerName);
+      ret.name = routerName.replace(rs, '');
+
+      let paramRegx = /\{\S*\}/;
+      if (paramRegx.test(rs)) {
+        let paramStr = paramRegx.exec(rs);
+        ret.params = JSON.parse(paramStr[0]);
+      }
+    } else {
+      ret.name = routerName;
+      ret.params = null;
+    }
+    return ret;
+  },
+  /**
+   * 获取第个可以触发路由的菜单
+   * @param menus
+   * @returns {*}
+   */
+  getFirstLinkMenusFun (menus) {
+    console.info(menus);
+    let firstLinkMenu = null;
+    if (!(menus && menus.length > 0)) {
+      return firstLinkMenu;
+    }
+    for (let i = 0, len = menus.length; i < len; i++) {
+      let item = menus[i];
+      if (item.children && item.children.length > 0) {
+        return this.getFirstLinkMenusFun(item.children);
+      } else if (item.resValue) {
+        return item;
+      }
+    }
   }
 }

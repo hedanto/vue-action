@@ -51,9 +51,9 @@
         this.$store.dispatch('login', this.form)
           .then(ret => {
             if (ret) {
-              let firstLinkMenus = this.$store.getters.getFirstLinkMenus;
-              this.$router.push(firstLinkMenus.resValue);
-              // this.$router.push('home');
+              // let firstLinkMenus = this.$store.getters.getFirstLinkMenus;
+              // this.$router.push({name: firstLinkMenus.stateName, params: firstLinkMenus.stateParams});
+              this.$router.push('home');
             }
           }
         );

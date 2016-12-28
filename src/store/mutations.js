@@ -12,5 +12,8 @@ export default {
   },
   [types.SET_CUR_MENU] (state, value) {
     state.curMenu = value;
+  },
+  [types.SET_MENUS_MAP] (state, value) {
+    state.menusMap = value;
   }
 };

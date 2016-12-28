@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes from '../config/routes-config';
 import store from '../../store';
+import utils from './utils';
 
 Vue.use(VueRouter);
 
@@ -11,7 +12,6 @@ const router = new VueRouter({
 
 // 如果是进入home路由，则判断是否登录，如果没有登录跳转登录页面
 router.beforeEach((to, from, next) => {
-  console.info(to);
   // 判断是否存在需要授权的路由
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!store.state.isLogin) {
@@ -19,16 +19,20 @@ router.beforeEach((to, from, next) => {
     }
   }
 
-  /*
-  if (to.matched && to.matched.length === 1 && to.matched[0].name === 'home') {
-    let checkedMenus = store.state.menus;
-    if (checkedMenus.length > 0) {
-      next(checkedMenus[0].resValue);
-    }
+  // 自动导航到路由最底层
+  let menusMap = store.state.menusMap;
+  let firstLinkMenus = null;
+  if (menusMap[to.name]) { // 如果该路由匹配到菜单，则重菜单子节点选择要触发的路由
+    firstLinkMenus = utils.getFirstLinkMenusFun(menusMap[to.name].children);
+  } else { // 如果没匹配到菜单，则从最顶级选择菜单匹配
+    firstLinkMenus = utils.getFirstLinkMenusFun(store.state.menus);
   }
-  */
 
-  next();
+  if (firstLinkMenus) {
+    next({name: firstLinkMenus.stateName, params: firstLinkMenus.stateParams});
+  } else {
+    next();
+  }
 });
 
 export default router;

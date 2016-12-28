@@ -8,7 +8,7 @@
       <div class="nav-bar" v-if="showInfo">
         <ul ref="headerNav">
           <li v-for="item in menus">
-            <router-link active-class="active"  :to="item.resValue">{{item.resName}}</router-link>
+            <router-link active-class="active"  :to="{name: item.stateName, params: item.stateParams}">{{item.resName}}</router-link>
           </li>
         </ul>
       </div>
@@ -24,7 +24,7 @@
   </header>
 </template>
 <script>
-  import $ from 'jquery';
+  // import $ from 'jquery';
   export default {
     props: {
       showInfo: {
@@ -45,7 +45,8 @@
       }
     },
     mounted () {
-      let headerNav = this.$refs.headerNav;
+     /*
+     let headerNav = this.$refs.headerNav;
       if (headerNav) {
         let $active = $(headerNav).find('li > a.active');
         if ($active.length === 0 && this.menus.length !== 0) {
@@ -53,6 +54,7 @@
           this.$router.push(firstLinkMenus.resValue);
         }
       }
+      */
     }
   };
 

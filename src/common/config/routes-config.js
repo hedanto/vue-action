@@ -1,5 +1,10 @@
 const routes = [
   {
+    cnName: '',
+    path: '/',
+    redirect: '/home'
+  },
+  {
     cnName: '主页',
     path: '/home',
     name: 'home',
@@ -36,10 +41,29 @@ const routes = [
       },
       {
         cnName: '个人中心',
-        path: 'user-certer',
+        name: 'home.personal',
+        path: 'personal',
         component (resolve) {
           require(['components/layout/layout.vue'], resolve);
-        }
+        },
+        children: [
+          {
+            cnName: '个人信息',
+            name: 'home.personal.personal-info',
+            path: 'archives-input',
+            component (resolve) {
+              require(['components/business/personal/personal-info.vue'], resolve);
+            }
+          },
+          {
+            cnName: '个人消息',
+            name: 'home.personal.personal-msg',
+            path: 'personal-msg',
+            component (resolve) {
+              require(['components/business/personal/personal-info.vue'], resolve);
+            }
+          }
+        ]
       }
     ]
   },
