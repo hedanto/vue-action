@@ -1,5 +1,5 @@
 <template>
-  <div>档案信息维护</div>
+  <div><pl-page-nav></pl-page-nav></div>
 </template>
 
 <script>

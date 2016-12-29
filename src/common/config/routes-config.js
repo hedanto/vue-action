@@ -57,7 +57,7 @@ const routes = [
           {
             desc: '个人信息',
             name: 'home.personal.personal-info',
-            path: 'archives-input',
+            path: 'personal-info',
             component (resolve) {
               require(['components/business/personal/personal-info.vue'], resolve);
             }
@@ -83,5 +83,20 @@ const routes = [
     }
   }
 ];
+
+function getRouterMap (routes) {
+  let map = {};
+  routes.map(item => {
+    map[item.name] = item;
+    if (item.children && item.children.length) {
+      map = {...map, ...getRouterMap(item.children)};
+    }
+  });
+  return map;
+}
+
+export const routerMap = (() => {
+  return getRouterMap(routes);
+})();
 
 export default routes;

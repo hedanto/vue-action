@@ -15,5 +15,11 @@ export default {
   },
   [types.SET_MENUS_MAP] (state, value) {
     state.menusMap = value;
+  },
+  [types.SET_ROUTER_MAP] (state, value) {
+    state.routerMap = value;
+  },
+  [types.SET_PREVIOUS_ROUTER] (state, value) {
+    state.previousRouter = value;
   }
 };

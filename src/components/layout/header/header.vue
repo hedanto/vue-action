@@ -13,18 +13,21 @@
         </ul>
       </div>
       <div class="account" v-if="showInfo">
-        <img src="./img/male.png">
+        <router-link :to="{name: 'home.personal.personal-msg'}" class="msg">
+          <el-badge :value="100" :max="99" class="item"/>
+          <img src="./img/male.png">
+        </router-link>
         <span class="name">
-          管理员&nbsp;&nbsp;&nbsp;
-          <i class="el-icon-arrow-down"></i>
-          | <button @click="logout">退出</button>
+          <router-link :to="{name: 'home.personal.personal-info'}">{{userInfo.userName}}</router-link>
+          &nbsp;|&nbsp;
+          <a @click="logout" href="#">退出</a>
         </span>
       </div>
     </div>
   </header>
 </template>
 <script>
-  // import $ from 'jquery';
+  import {MsgType} from '../../../common/js/constants';
   export default {
     props: {
       showInfo: {
@@ -37,24 +40,23 @@
     computed: {
       menus () {
         return this.$store.state.menus;
+      },
+      userInfo () {
+        return this.$store.state.contextData.user;
       }
     },
     methods: {
       logout () {
-        this.$api.logout();
+        this.$confirm('确定要退出系统吗?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: MsgType.WARING
+        }).then(() => {
+          this.$api.logout();
+        });
       }
     },
     mounted () {
-     /*
-     let headerNav = this.$refs.headerNav;
-      if (headerNav) {
-        let $active = $(headerNav).find('li > a.active');
-        if ($active.length === 0 && this.menus.length !== 0) {
-          let firstLinkMenus = this.$store.getters.getFirstLinkMenus;
-          this.$router.push(firstLinkMenus.resValue);
-        }
-      }
-      */
     }
   };
 
@@ -147,7 +149,17 @@
         height: 100%;
         @extend .pull-right;
         display: inline-block;
-        > img {
+        position: relative;
+        .msg {
+          position: relative;
+          float: left;
+          > .item{
+            top: 0px;
+            left: $img-size - 15px;
+            position: absolute;
+          }
+        }
+        img {
           @include border-radius;
           float: left;
           height: $img-size;

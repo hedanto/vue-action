@@ -1,7 +1,7 @@
 <template>
   <div class="menu-wrapper">
     <ul>
-      <li class="menu-item" v-for="item in subMenus">
+      <li class="menu-item" v-for="item in subMenus" :class="{'item-padding':item.children && item.children.length > 0}">
         <a v-if = '!item.stateName' class="disabled">{{item.resName}}</a>
         <router-link  v-if = 'item.stateName' active-class="active"  :to="{name: item.stateName, params: item.stateParams}">
           {{item.resName}}

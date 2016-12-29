@@ -14,7 +14,9 @@ const state = {
   currentUser: null,
   menus: [],
   menusMap: {},
-  curMenu: {}
+  routerMap: {},
+  curMenu: {},
+  previousRouter: {}
 };
 
 export default new Vuex.Store({

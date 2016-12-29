@@ -1,5 +1,5 @@
 <template>
-  <div>档案信息录入</div>
+  <div><pl-page-nav :show-previous="true" previous-path="home.biz.archives-mgt"></pl-page-nav></div>
 </template>
 
 <script>

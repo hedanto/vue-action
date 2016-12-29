@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import routes from '../config/routes-config';
+import routes, {routerMap} from '../config/routes-config';
 import store from '../../store';
 import utils from './utils';
 import * as types from '../../store/mutation-types';
@@ -10,6 +10,8 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes // （缩写）相当于 routes: routes
 });
+
+store.commit(types.SET_ROUTER_MAP, routerMap);
 
 // 如果是进入home路由，则判断是否登录，如果没有登录跳转登录页面
 router.beforeEach((to, from, next) => {
@@ -36,6 +38,8 @@ router.beforeEach((to, from, next) => {
     store.commit(types.SET_CUR_MENU, getTopMenu(to.name));
     next();
   }
+
+  store.commit(types.SET_PREVIOUS_ROUTER, from);
 });
 
 // 获取当前菜单
@@ -50,7 +54,6 @@ function getTopMenu (value) {
       } else {
         indexStr += '.' + indexs[i];
       }
-      console.info(indexStr);
       if (store.state.menusMap[indexStr]) {
         menu = store.state.menusMap[indexStr];
         break;
