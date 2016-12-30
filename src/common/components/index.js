@@ -1,6 +1,7 @@
 import PageNav from './pageNav';
 import Header from './header';
 import Menu from './menu';
+import Layout from './layout';
 
 const install = function (Vue, opts = {}) {
   /* istanbul ignore if */
@@ -9,6 +10,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(PageNav.name, PageNav);
   Vue.component(Header.name, Header);
   Vue.component(Menu.name, Menu);
+  Vue.component(Layout.name, Layout);
 };
 
 /* istanbul ignore if */
@@ -21,6 +23,7 @@ module.exports = {
   install,
   PageNav,
   Header,
-  Menu
+  Menu,
+  Layout
 };
 

@@ -9,14 +9,7 @@
   export default {
     computed: {
       subMenus () {
-        return [
-          {
-            resName: '简介',
-            children: [
-              {resName: '快速上手', stateName: 'example.guide'}
-            ]
-          }
-        ];
+        return this.$store.state.curMenu.children;
       }
     }
   };

@@ -22,23 +22,26 @@ router.beforeEach((to, from, next) => {
     }
   }
 
-  // 自动导航到路由最底层
-  let menusMap = store.state.menusMap;
-  let firstLinkMenus = null;
-  if (menusMap[to.name]) { // 如果该路由匹配到菜单，则重菜单子节点选择要触发的路由
-    firstLinkMenus = utils.getFirstLinkMenusFun(menusMap[to.name].children);
-  } else { // 如果没匹配到菜单，则从最顶级选择菜单匹配
-    firstLinkMenus = utils.getFirstLinkMenusFun(store.state.menus);
-  }
+  if (to.matched[0].name === 'home') {
+    // 自动导航到路由最底层
+    let menusMap = store.state.menusMap;
+    let firstLinkMenus = null;
+    if (menusMap[to.name]) { // 如果该路由匹配到菜单，则重菜单子节点选择要触发的路由
+      firstLinkMenus = utils.getFirstLinkMenusFun(menusMap[to.name].children);
+    } else { // 如果没匹配到菜单，则从最顶级选择菜单匹配
+      firstLinkMenus = utils.getFirstLinkMenusFun(store.state.menus);
+    }
 
-  if (firstLinkMenus) {
-    store.commit(types.SET_CUR_MENU, getTopMenu(firstLinkMenus.stateName));
-    next({name: firstLinkMenus.stateName, params: firstLinkMenus.stateParams});
+    if (firstLinkMenus) {
+      store.commit(types.SET_CUR_MENU, getTopMenu(firstLinkMenus.stateName));
+      next({name: firstLinkMenus.stateName, params: firstLinkMenus.stateParams});
+    } else {
+      store.commit(types.SET_CUR_MENU, getTopMenu(to.name));
+      next();
+    }
   } else {
-    store.commit(types.SET_CUR_MENU, getTopMenu(to.name));
     next();
   }
-
   store.commit(types.SET_PREVIOUS_ROUTER, from);
 });
 

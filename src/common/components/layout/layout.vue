@@ -2,28 +2,25 @@
   <section>
     <div class="main-wrapper">
       <div class="main-left">
-        <pl-menu :menus="subMenus"></pl-menu>
+        <slot name="left"></slot>
       </div>
       <div class="main-content">
-        <router-view></router-view>
+        <slot name="right"></slot>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+  import config from '../config';
   export default {
-    computed: {
-      subMenus () {
-        return this.$store.state.curMenu.children;
-      }
-    }
+    name: config.prefix + 'Layout'
   };
 
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  @import "../../common/scss/index";
+  @import "../../scss/index";
 
   .main-wrapper {
     @extend .container;

@@ -6,11 +6,13 @@
 </template>
 
 <script>
-  import menuData from './menu-data';
   export default {
     computed: {
       menus () {
-        return menuData;
+        return [
+          {resName: '开发指南', stateName: 'example.guide'},
+          {resName: '组件', stateName: 'example.components'}
+        ];
       }
     },
     methods: {

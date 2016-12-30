@@ -11,7 +11,15 @@ body{
   font-size: 14px;
   color: $font-color;
 }
-
+/**
+  顶部进度条样式
+ */
+.top-progress{
+  background: $primary-color !important;
+  .peg {
+    box-shadow: $primary-color  0px 0px 10px, $primary-color  0px 0px 5px !important;
+  }
+}
 /*
   清除浮动
  */

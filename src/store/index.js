@@ -11,7 +11,6 @@ const debug = process.env.NODE_ENV !== 'production';
 const state = {
   isLogin: false,
   contextData: {},
-  currentUser: null,
   menus: [],
   menusMap: {},
   routerMap: {},

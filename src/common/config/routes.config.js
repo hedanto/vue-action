@@ -25,7 +25,7 @@ let routes = [
         name: 'home.biz',
         path: 'biz',
         component (resolve) {
-          require(['components/layout/layout.vue'], resolve);
+          require(['components/home/layout.vue'], resolve);
         },
         children: [
           {
@@ -51,7 +51,7 @@ let routes = [
         name: 'home.personal',
         path: 'personal',
         component (resolve) {
-          require(['components/layout/layout.vue'], resolve);
+          require(['components/home/layout.vue'], resolve);
         },
         children: [
           {
@@ -84,11 +84,20 @@ let routes = [
   }
 ];
 
+// 其他默认配置路由，需要放置到底部
+var others = [
+  {
+    path: '*',
+    component: require('components/not-found.vue')
+  }
+];
+
 if (process.env.NODE_ENV === 'development') {
   let exampleRoutes = require('./example-routes.config.js');
-  console.info(exampleRoutes);
   routes = [...routes, ...exampleRoutes];
 }
+
+routes = [...routes, ...others];
 
 function getRouterMap (routes) {
   let map = {};

@@ -12,6 +12,7 @@ const routes = [
     component (resolve) {
       require(['components/example/example.vue'], resolve);
     },
+    redirect: { name: 'example.guide' },
     children: [
       {
         desc: '开发指南',
@@ -27,7 +28,18 @@ const routes = [
         name: 'example.components',
         component (resolve) {
           require(['components/example/components/components.vue'], resolve);
-        }
+        },
+        redirect: { name: 'example.components.header' },
+        children: [
+          {
+            desc: '页头(header)',
+            name: 'example.components.header',
+            path: 'header',
+            component (resolve) {
+              require(['components/example/components/header/header-demo.vue'], resolve);
+            }
+          }
+        ]
       }
     ]
   }

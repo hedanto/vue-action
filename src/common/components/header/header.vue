@@ -1,7 +1,7 @@
 <template>
   <header class="header-wrapper">
     <div class="header-content">
-      <div class="logo">
+      <div class="logo" @click="logoClick">
         <img src="./img/logo.png">
         <span>{{headerTitle}}</span>
       </div>
@@ -49,16 +49,16 @@
     },
     methods: {
       logout () {
-        console.info('logout');
         this.$emit('logout');
       },
       iconClick () {
-        console.info('iconclick');
         this.$emit('iconclick');
       },
       nameClick () {
-        console.info('nameclick');
         this.$emit('nameclick');
+      },
+      logoClick () {
+        this.$router.push('/');
       }
     }
   };
@@ -90,6 +90,7 @@
         display: inline-block;
         line-height: 100%;
         text-align: center;
+        cursor: pointer;
         > img {
           height: $img-size;
           width: $img-size;
@@ -156,6 +157,7 @@
         .msg {
           position: relative;
           float: left;
+          cursor: pointer;
           > .item{
             top: 0px;
             left: $img-size - 15px;
@@ -174,6 +176,9 @@
           float: left;
           line-height: $header-height - 10px;
           padding-left: 10px;
+          > span {
+            cursor: pointer;
+          }
         }
       }
     }
