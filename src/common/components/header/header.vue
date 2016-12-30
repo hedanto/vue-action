@@ -3,22 +3,22 @@
     <div class="header-content">
       <div class="logo">
         <img src="./img/logo.png">
-        <span>DEMO</span>
+        <span>{{headerTitle}}</span>
       </div>
-      <div class="nav-bar" v-if="showInfo">
+      <div class="nav-bar">
         <ul ref="headerNav">
           <li v-for="item in menus">
             <router-link active-class="active"  :to="{name: item.stateName, params: item.stateParams}">{{item.resName}}</router-link>
           </li>
         </ul>
       </div>
-      <div class="account" v-if="showInfo">
-        <router-link :to="{name: 'home.personal.personal-msg'}" class="msg">
-          <el-badge :value="100" :max="99" class="item"/>
+      <div class="account" v-if="account && account.name">
+        <span class="msg" @click="iconClick">
+          <el-badge :value="account.msgCount" :max="99" class="item"/>
           <img src="./img/male.png">
-        </router-link>
+        </span>
         <span class="name">
-          <router-link :to="{name: 'home.personal.personal-info'}">{{userInfo.userName}}</router-link>
+          <span @click="nameClick">{{account.name}}</span>
           &nbsp;|&nbsp;
           <a @click="logout" href="#">退出</a>
         </span>
@@ -27,36 +27,39 @@
   </header>
 </template>
 <script>
-  import {MsgType} from '../../../common/js/constants';
+  import config from '../config';
   export default {
+    name: config.prefix + 'Header',
     props: {
-      showInfo: {
-        default: true
-      }
+      menus: {
+        default: () => {
+          return [];
+        },
+        type: Array
+      },
+      account: {
+        name: '',
+        msgCount: 0
+      },
+      logoUrl: '',
+      headerTitle: ''
     },
     data () {
       return {};
     },
-    computed: {
-      menus () {
-        return this.$store.state.menus;
-      },
-      userInfo () {
-        return this.$store.state.contextData.user;
-      }
-    },
     methods: {
       logout () {
-        this.$confirm('确定要退出系统吗?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: MsgType.WARING
-        }).then(() => {
-          this.$api.logout();
-        });
+        console.info('logout');
+        this.$emit('logout');
+      },
+      iconClick () {
+        console.info('iconclick');
+        this.$emit('iconclick');
+      },
+      nameClick () {
+        console.info('nameclick');
+        this.$emit('nameclick');
       }
-    },
-    mounted () {
     }
   };
 

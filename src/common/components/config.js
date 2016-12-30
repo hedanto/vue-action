@@ -1,3 +1,3 @@
 export default {
-  prefix: 'Pl'
+  prefix: 'Pl' // 组件的前缀
 };

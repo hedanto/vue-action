@@ -1,15 +1,22 @@
 <template>
   <div class="page-nav-wrapper">
     <div class="page-nav-title">
-      <el-breadcrumb separator="/">
+      <el-breadcrumb separator="/" v-if="!navTitle">
         <el-breadcrumb-item v-if="showPrevious" :to="{ name: previousNav.name, params: previousNav.params}">
          <i class="anticon icon-leftcircleo"></i> {{previousNav.desc}}
         </el-breadcrumb-item>
         <el-breadcrumb-item>{{curNavName}}</el-breadcrumb-item>
       </el-breadcrumb>
+      <span>{{navTitle}}</span>
     </div>
-    <div class="page-nav-tip"></div>
-    <div class="page-nav-toolbar"></div>
+    <div class="page-nav-right">
+      <div class="page-nav-tip">
+        <slot name="nav-tip"></slot>
+      </div>
+      <div class="page-nav-toolbar">
+        <slot name="nav-toolbar"></slot>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,6 +32,10 @@
       },
       previousPath: { // 指定上一级导航，showPrevious：true的时候才有效
         default: ''
+      },
+      navTitle: { // 手动配置显示的头
+        default: '',
+        type: String
       }
     },
     data () {
@@ -83,12 +94,20 @@
       .el-breadcrumb {
         font-size: 17px !important;
         line-height: 36px;
-        .el-breadcrumb__item .el-breadcrumb__item__inner{
-          color: $font-color;
-          &:last-child{
-            color: $font-color-light;
-          }
-        }
+      }
+    }
+
+    > div{
+      padding-right: 20px;
+    }
+    .page-nav-right{
+      float: right;
+      padding-right:0px;
+      .page-nav-tip{
+        float: right;
+      }
+      .page-nav-toolbar{
+        float: right;
       }
     }
   }

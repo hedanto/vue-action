@@ -1,5 +1,10 @@
 <template>
-  <div><pl-page-nav :show-previous="true" previous-path="home.biz.archives-mgt"></pl-page-nav></div>
+  <div>
+    <pl-page-nav :show-previous="true" previous-path="home.biz.archives-mgt">
+      <span slot="nav-tip">tip</span>
+      <span slot="nav-toolbar">toolbar</span>
+    </pl-page-nav>
+  </div>
 </template>
 
 <script>

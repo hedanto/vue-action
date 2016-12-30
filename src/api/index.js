@@ -1,5 +1,5 @@
 import { http } from 'vue';
-import './api-cofing';
+import './api.cofing';
 import _install from './install';
 import { HttpPrefix } from '../common/js/constants';
 import modules from './modules';

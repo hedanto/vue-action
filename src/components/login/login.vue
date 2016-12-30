@@ -1,6 +1,6 @@
 <template>
   <section class="login-wrapper">
-    <biz-header :show-info="false" ></biz-header>
+    <pl-header  header-title="DEMO"></pl-header>
     <div class="login-context" ref="loginContext">
       <div class="login-container">
         <div class="login-panel">
@@ -27,8 +27,6 @@
 </template>
 
 <script>
-  import header from 'components/layout/header/header.vue';
-
   export default {
     data () {
       return {
@@ -58,9 +56,6 @@
           }
         );
       }
-    },
-    components: {
-      'biz-header': header
     },
     mounted () {
       this.setLoginHeight();

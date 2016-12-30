@@ -4,7 +4,7 @@
  *      2、desc 不是vue-router的配置，是自动定义的，主要用来描述当前路由
  * @type {[*]}
  */
-const routes = [
+let routes = [
   {
     desc: '',
     name: '',
@@ -83,6 +83,12 @@ const routes = [
     }
   }
 ];
+
+if (process.env.NODE_ENV === 'development') {
+  let exampleRoutes = require('./example-routes.config.js');
+  console.info(exampleRoutes);
+  routes = [...routes, ...exampleRoutes];
+}
 
 function getRouterMap (routes) {
   let map = {};
