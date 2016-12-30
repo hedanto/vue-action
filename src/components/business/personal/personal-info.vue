@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    <pl-page-nav></pl-page-nav>
+  </div>
 </template>
 
 <script>

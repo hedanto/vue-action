@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <top-progress ref="topProgress"></top-progress>
+    <top-progress ref="topProgress" :height="2"></top-progress>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>

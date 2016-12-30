@@ -1,5 +1,5 @@
 <template>
-  <header class="header-wrapper">
+  <header class="header-wrapper" :class="{'header-shadow':headerShadow}">
     <div class="header-content">
       <div class="logo" @click="logoClick">
         <img src="./img/logo.png">
@@ -42,7 +42,11 @@
         msgCount: 0
       },
       logoUrl: '',
-      headerTitle: ''
+      headerTitle: '',
+      headerShadow: {
+        default: true,
+        type: Boolean
+      }
     },
     data () {
       return {};
@@ -79,7 +83,9 @@
     top: 0px;
     left: 0px;
     width: 100%;
-    box-shadow: 2px 2px 5px rgb(204, 204, 204);
+    &.header-shadow{
+      box-shadow: 2px 2px 5px rgb(204, 204, 204);
+    }
     .header-content {
       @extend .container;
       height: $header-height - 10px;

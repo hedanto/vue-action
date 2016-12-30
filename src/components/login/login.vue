@@ -1,6 +1,6 @@
 <template>
   <section class="login-wrapper">
-    <pl-header  header-title="DEMO"></pl-header>
+    <pl-header  header-title="Demo" :header-shadow="false"></pl-header>
     <div class="login-context" ref="loginContext">
       <div class="login-container">
         <div class="login-panel">
@@ -73,7 +73,7 @@
     background: #fff;
     overflow: hidden;
     .login-context {
-      min-height: 480px;
+      min-height: 500px;
       margin-top: 60px;
       background: url("img/login-bg.jpg") no-repeat center 0;
       .login-container {
@@ -86,8 +86,9 @@
           right: 100px;
           box-shadow: 2px 2px 5px rgb(204, 204, 204);
           height: 300px;
-          width: 350px;
-          background: #fff;
+          width: 330px;
+          @include border-radius(4px);
+          background: rgba(255, 255, 255, 0.87);
           .login-title {
             height: 50px;
             line-height: 50px;

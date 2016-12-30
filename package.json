@@ -64,7 +64,7 @@
     "mocha": "^3.1.0",
     "mockjs": "^1.0.1-beta3",
     "nightwatch": "^0.9.8",
-    "node-sass": "^4.0.0",
+    "node-sass": "^4.1.1",
     "opn": "^4.0.2",
     "ora": "^0.3.0",
     "phantomjs-prebuilt": "^2.1.3",

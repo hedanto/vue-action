@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pl-header :menus="menus" header-title="DEMO" :account="account" @logout="logout" @iconclick="iconClick" @nameclick="nameClick"></pl-header>
+    <pl-header :menus="menus" header-title="Demo" :account="account" @logout="logout" @iconclick="iconClick" @nameclick="nameClick"></pl-header>
     <router-view></router-view>
   </div>
 </template>
