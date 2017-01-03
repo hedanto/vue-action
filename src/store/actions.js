@@ -1,7 +1,7 @@
 import * as types from './mutation-types';
 import Vue from 'vue';
 import {MsgType} from '../common/js/constants';
-import utils from '../common/js/utils';
+import utils from '../common/js/sysUtils';
 
 // 登录
 export const login = ({commit}, param) => {

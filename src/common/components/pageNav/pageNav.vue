@@ -22,7 +22,7 @@
 
 <script>
   import config from '../config';
-  import utils from '../../js/utils';
+  import utils from '../../js/sysUtils';
   export default {
     name: config.prefix + 'PageNav',
     props: {

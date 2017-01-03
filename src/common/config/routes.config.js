@@ -16,7 +16,8 @@ let routes = [
     path: '/home',
     name: 'home',
     component (resolve) {
-      require(['components/home/home.vue'], resolve);
+      // require(['components/home/home.vue'], resolve);
+      require.ensure([], () => resolve(require('components/home/home.vue')), 'home');
     },
     meta: { requiresAuth: true },
     children: [
@@ -26,6 +27,7 @@ let routes = [
         path: 'biz',
         component (resolve) {
           require(['components/home/layout.vue'], resolve);
+          // require.ensure([], () => resolve(require('components/home/home.vue')), 'home');
         },
         children: [
           {
@@ -33,7 +35,7 @@ let routes = [
             name: 'home.biz.archives-input',
             path: 'archives-input',
             component (resolve) {
-              require(['components/business/processing/archives-input.vue'], resolve);
+              require(['components/modules/processing/archives-input.vue'], resolve);
             }
           },
           {
@@ -41,7 +43,7 @@ let routes = [
             name: 'home.biz.archives-mgt',
             path: 'archives-mgt',
             component (resolve) {
-              require(['components/business/processing/archives-mgt.vue'], resolve);
+              require(['components/modules/processing/archives-mgt.vue'], resolve);
             }
           }
         ]
@@ -59,7 +61,7 @@ let routes = [
             name: 'home.personal.personal-info',
             path: 'personal-info',
             component (resolve) {
-              require(['components/business/personal/personal-info.vue'], resolve);
+              require(['components/modules/personal/personal-info.vue'], resolve);
             }
           },
           {
@@ -67,7 +69,7 @@ let routes = [
             name: 'home.personal.personal-msg',
             path: 'personal-msg',
             component (resolve) {
-              require(['components/business/personal/personal-info.vue'], resolve);
+              require(['components/modules/personal/personal-msg.vue'], resolve);
             }
           }
         ]

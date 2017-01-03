@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes, {routerMap} from '../config/routes.config';
 import store from '../../store';
-import utils from './utils';
+import utils from './sysUtils';
 import * as types from '../../store/mutation-types';
 
 Vue.use(VueRouter);

@@ -1,4 +1,4 @@
-import utils from '../common/js/utils';
+import utils from '../common/js/sysUtils';
 
 // 获取登录状态
 export const getLoginState = state => {
