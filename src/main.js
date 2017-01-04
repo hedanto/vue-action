@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import App from './App';
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-default/index.css';
+import 'common/theme/index.css';
+import 'common/theme/theme-reset.css';
 import '../static/IconFont/iconfont.css';
 import router from 'common/js/router';
 import store from './store';
