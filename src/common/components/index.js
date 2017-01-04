@@ -10,7 +10,11 @@ const install = function (Vue, opts = {}) {
   Vue.component(PageNav.name, PageNav);
   Vue.component(Header.name, Header);
   Vue.component(Menu.name, Menu);
-  Vue.component(Layout.name, Layout);
+
+  for (var key in Layout) {
+    let component = Layout[key];
+    Vue.component(component.name, component);
+  }
 };
 
 /* istanbul ignore if */
@@ -23,5 +27,5 @@ export default {
   PageNav,
   Header,
   Menu,
-  Layout
+  ...Layout
 };
