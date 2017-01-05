@@ -8,7 +8,7 @@
       <div class="nav-bar">
         <ul ref="headerNav">
           <li v-for="item in menus">
-            <router-link active-class="active"  :to="{name: item.stateName, params: item.stateParams}">{{item.resName}}</router-link>
+            <router-link active-class="active" :to="{name: item.stateName, params: item.stateParams}">{{item.resName}}</router-link>
           </li>
         </ul>
       </div>

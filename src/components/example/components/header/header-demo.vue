@@ -1,5 +1,7 @@
 <template>
-  <pl-page-nav></pl-page-nav>
+  <pl-content-box>
+    <pl-page-nav></pl-page-nav>
+  </pl-content-box>
 </template>
 
 <script>
