@@ -272,5 +272,43 @@ export default {
         return item;
       }
     }
+  },
+  /**
+   * html转字符串
+   * @param str
+   * @returns {*}
+   */
+  htmlToStr (str) {
+    var RexStr = /\<|\>|\"|\'|\&|　| /g;
+    str = str.replace(RexStr,
+      function (MatchStr) {
+        switch (MatchStr) {
+          case "<":
+            return "&lt;";
+            break;
+          case ">":
+            return "&gt;";
+            break;
+          case "\"":
+            return "&quot;";
+            break;
+          case "'":
+            return "&#39;";
+            break;
+          case "&":
+            return "&amp;";
+            break;
+          case " ":
+            return "&ensp;";
+            break;
+          case "　":
+            return "&emsp;";
+            break;
+          default:
+            break;
+        }
+      }
+    )
+    return str;
   }
 }
