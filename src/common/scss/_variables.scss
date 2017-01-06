@@ -8,10 +8,23 @@ $left-menu-bar-width:       200px !default;
 $box-sizing:                border-box !default;
 /*首要颜色*/
 $primary-color:             #41b883 !default;
+/*辅助颜色*/
+$success-color:             #13CE66 !default;
+$info-color:                #20A0FF !default;
+$warning-color:             #F7BA2A !default;
+$danger-color:              #FF4949 !default;
+$muted-color:               #8D8D8D !default;
+
 /*边框颜色*/
-$border-color:              #D9DADC !default;
+$border-color:              #e9e9e9 !default;
 /*主背景色*/
 $main-background-color:     #fff !default;
+/*辅助背景色*/
+$success-bg-color:          #13CE66 !default;
+$info-bg-color:             #20A0FF !default;
+$warning-bg-color:          #F7BA2A !default;
+$danger-bg-color:           #FF4949 !default;
+$primary-bg-color:          #41b883 !default;
 /*浅色*/
 $dark-white:                #F9FAFC !default;
 /*字体颜色*/

@@ -29,14 +29,70 @@ const routes = [
         component (resolve) {
           require(['components/example/components/components.vue'], resolve);
         },
-        redirect: { name: 'example.components.header' },
+        redirect: { name: 'example.components.illustration' },
         children: [
+          {
+            desc: '相关说明',
+            name: 'example.components.illustration',
+            path: 'illustration',
+            component (resolve) {
+              require(['components/example/components/illustration/illustration.vue'], resolve);
+            }
+          },
+          {
+            desc: '图标',
+            name: 'example.components.icons',
+            path: 'icons',
+            component (resolve) {
+              require(['components/example/components/icons/icons.vue'], resolve);
+            }
+          },
           {
             desc: '页头(header)',
             name: 'example.components.header',
             path: 'header',
             component (resolve) {
               require(['components/example/components/header/header-demo.vue'], resolve);
+            }
+          },
+          {
+            desc: '表格(apiTable)',
+            name: 'example.components.apiTable',
+            path: 'apiTable',
+            component (resolve) {
+              require(['components/example/components/apiTable/apiTable-demo.vue'], resolve);
+            }
+          },
+          {
+            desc: '锚点(affix)',
+            name: 'example.components.affix',
+            path: 'affix',
+            component (resolve) {
+              require(['components/example/components/affix/affix-demo.vue'], resolve);
+            }
+          },
+          {
+            desc: '代码示例组件(codeBox)',
+            name: 'example.components.codeBox',
+            path: 'codeBox',
+            component (resolve) {
+              require(['components/example/components/codeBox/code-box-demo.vue'], resolve);
+            }
+          },
+          {
+            desc: '返回顶部(backTop)',
+            name: 'example.components.backTop',
+            path: 'backTop',
+            component (resolve) {
+              require(['components/example/components/backTop/back-top-demo.vue'], resolve);
+            }
+          },
+          {
+            desc: 'form表单验证(formValidate)',
+            name: 'example.components.form',
+            path: 'form',
+            component (resolve) {
+              require(['components/example/components/form/form-validate-element.vue'], resolve);
             }
           }
         ]

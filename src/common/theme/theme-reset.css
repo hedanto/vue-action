@@ -1,3 +1,8 @@
 .el-form-item__content{
   line-height: normal !important;
 }
+
+.el-breadcrumb__item:last-child .el-breadcrumb__item__inner, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner:hover, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a:hover{
+  color: inherit !important;
+}
+
