@@ -3,7 +3,7 @@ import App from './App';
 import ElementUI from 'element-ui';
 import 'common/theme/index.css';
 import 'common/theme/theme-reset.css';
-import '../static/IconFont/iconfont.css';
+import 'common/iconFont/iconfont.css';
 import router from 'common/js/router';
 import store from './store';
 import api from './api';
