@@ -2,7 +2,7 @@
   <pl-content-box>
     <pl-page-nav></pl-page-nav>
     <pl-content-box-block>
-      <h2>显示一个表格</h2>
+      <p>用显示api一个表格</p>
     </pl-content-box-block>
     <pl-content-box-title>组件演示</pl-content-box-title>
     <pl-content-box-block>
@@ -46,11 +46,11 @@
   let tableContent = [['1-1', '1-2'], ['2-1', '2-2']];
   let apiTableHead = ['参数', '说明', '类型', '默认值'];
   let apiTableContent = [
-    ['title', '设置表格标题', 'string', '无'],
-    ['head', '表头数据,根据type字段,head的默认值也不同', 'array', 'props:["参数","说明","类型","默认值"],methods:["方法名","说明","参数"],events:["事件名","说明","参数"]'],
     ['type', '表格类型(props,methods,events)', 'string', 'props'],
+    ['head', '表头数据,根据type字段,head的默认值也不同', 'array', 'props:["参数","说明","类型","默认值"],methods:["方法名","说明","参数"],events:["事件名","说明","参数"]'],
     ['content', '表格每行的内容数组 [["1","2","3","4"]...]', 'array', '无'],
-    ['apis', '表格每行的内容数组 [{parameter,explain,type,default}...],推荐用content', 'array', '无']];
+    ['apis', '表格每行的内容数组 [{parameter,explain,type,default}...],推荐用content', 'array', '无']
+  ];
 
   export default {
     data () {

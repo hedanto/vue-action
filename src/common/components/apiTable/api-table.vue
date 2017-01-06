@@ -1,10 +1,5 @@
 <template>
   <section class="markdown api-container">
-    <h2 class="table-title">
-      <div>
-        {{title}}
-      </div>
-    </h2>
     <slot></slot>
     <table>
       <thead>
@@ -35,11 +30,7 @@
       },
       head: Array,
       content: Array,
-      apis: Array,
-      title: {
-        type: String
-//        default: 'API'
-      }
+      apis: Array
     },
     mounted () {
       if (!this.head) {
@@ -85,17 +76,6 @@
   .markdown.api-container table {
     font-family: Consolas,Menlo,Courier,monospace;
     font-size: 13px;
-  }
-
-  .table-title {
-    height: 50px;
-    font-size: 16px;
-    color: #b2b2b2;
-
-    padding: {
-      top: 17px;
-      left: 15px;
-    };
   }
 
 </style>
