@@ -11,7 +11,7 @@
   };
 </script>
 
-<style lang="scss" rel="stylesheet/scss" scoped>
+<style lang="scss" rel="stylesheet/scss">
   .content-box-block{
     padding: 20px 30px;
   }

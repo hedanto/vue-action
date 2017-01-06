@@ -22,7 +22,8 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  @import "../../scss/index";
+  @import "../../scss/variables";
+  @import "../../scss/mixin";
 
   .content-box-title-wrapper {
     padding: $context-header-y-padding $context-header-x-padding;

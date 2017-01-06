@@ -8,11 +8,12 @@
       <div class="nav-bar">
         <ul ref="headerNav">
           <li v-for="item in menus">
-            <router-link active-class="active" :to="{name: item.stateName, params: item.stateParams}">{{item.resName}}</router-link>
+            <router-link active-class="active"  :to="{name: item.stateName, params: item.stateParams}">{{item.resName}}</router-link>
           </li>
         </ul>
       </div>
       <div class="account" v-if="account && account.name">
+        <span class="dev"><i class="anticon icon-questioncircleo text-primary"></i>&nbsp;<router-link class="text-muted" target="_blank" :to="{name: 'example'}">开发指南</router-link></span>
         <span class="msg" @click="iconClick">
           <el-badge :value="account.msgCount" :max="99" class="item"/>
           <img src="./img/male.png">
@@ -160,6 +161,12 @@
         @extend .pull-right;
         display: inline-block;
         position: relative;
+        .dev{
+          float: left;
+          line-height: $header-height - 10px;
+          padding: 0px 10px;
+          font-size: 12px;
+        }
         .msg {
           position: relative;
           float: left;

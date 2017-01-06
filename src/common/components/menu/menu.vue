@@ -33,7 +33,8 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  @import "../../../common/scss/index";
+  @import "../../scss/variables";
+  @import "../../scss/mixin";
 
   .menu-wrapper {
     $menu-padding-left: 30px;
@@ -43,7 +44,7 @@
       }
       border-top: 1px solid $border-color;
       &:first-child {
-        margin-top: 15px;
+        margin-top: 20px;
         border-top: 0px solid $border-color;
       }
       .sub-menu-item {
