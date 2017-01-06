@@ -1239,9 +1239,9 @@
 
 <script>
   let html =
-  `<i class="icon anticon icon-stepforward"></i>
-  <i class="icon anticon icon-forward"></i>
-  <i class="icon anticon icon-caretup"></i>`;
+  `<i class="anticon icon-stepforward"></i>
+  <i class="anticon icon-forward"></i>
+  <i class="anticon icon-caretup"></i>`;
   export default {
     data () {
       return {
