@@ -94,6 +94,14 @@ const routes = [
             component (resolve) {
               require(['components/example/components/form/form-validate-element.vue'], resolve);
             }
+          },
+          {
+            desc: '分页表格(pageTable)',
+            name: 'example.components.pageTable',
+            path: 'page-table',
+            component (resolve) {
+              require(['components/example/components/pageTable/pageTable-demo.vue'], resolve);
+            }
           }
         ]
       }

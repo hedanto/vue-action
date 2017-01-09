@@ -6,6 +6,7 @@ import Affix from './affix';
 import BackTop from './backTop';
 import ApiTable from './apiTable';
 import CodeBox from './codeBox';
+import PageTable from './pageTable';
 
 const install = function (Vue, opts = {}) {
   /* istanbul ignore if */
@@ -18,6 +19,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(BackTop.name, BackTop);
   Vue.component(ApiTable.name, ApiTable);
   Vue.component(CodeBox.name, CodeBox);
+  Vue.component(PageTable.name, PageTable);
 
   for (var key in Layout) {
     let component = Layout[key];
@@ -39,5 +41,6 @@ export default {
   Affix,
   BackTop,
   ApiTable,
-  CodeBox
+  CodeBox,
+  PageTable
 };
