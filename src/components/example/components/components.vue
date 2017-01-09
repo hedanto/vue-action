@@ -23,6 +23,12 @@
             ]
           },
           {
+            resName: '数据组件',
+            children: [
+              {resName: '分页表格(pageTable)', stateName: 'example.components.pageTable'}
+            ]
+          },
+          {
             resName: '其他组件',
             children: [
               {resName: '锚点(affix)', stateName: 'example.components.affix'},

@@ -35,7 +35,7 @@
           <p>很长很长很长很长很长很长</p>
           <p>这个时候需要再给我一点空间</p>
           <p>让我再展示有多长</p>
-          <pl-back-top :height="100" :bottom="100"></pl-back-top>
+          <pl-back-top height="100" bottom="100"></pl-back-top>
         </div>
       </pl-code-box>
     </pl-content-box-block>
