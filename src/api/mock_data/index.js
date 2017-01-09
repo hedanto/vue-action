@@ -1,7 +1,7 @@
 import {MsgType, SystemMode} from '../../common/js/constants';
 import Mock from 'mockjs';
 import './test.mock';
-
+import './example';
 // 模拟登录数据
 Mock.mock(/\/auth\/login/, {
   type: MsgType.SUCCESS, show: true, msg: '登录成功！', title: null, bean: null
