@@ -6,3 +6,7 @@
   color: inherit !important;
 }
 
+.el-pagination__sizes{
+  margin: 0 0 0 10px !important;
+}
+

@@ -102,6 +102,22 @@ const routes = [
             component (resolve) {
               require(['components/example/components/pageTable/pageTable-demo.vue'], resolve);
             }
+          },
+          {
+            desc: '综合实列(integrate)',
+            name: 'example.components.integrate',
+            path: 'integrate',
+            component (resolve) {
+              require(['components/example/components/integrate/integrate-demo.vue'], resolve);
+            }
+          },
+          {
+            desc: '编辑实列',
+            name: 'example.components.integrate-edit',
+            path: 'integrate-edit',
+            component (resolve) {
+              require(['components/example/components/integrate/integrate-edit-demo.vue'], resolve);
+            }
           }
         ]
       }
