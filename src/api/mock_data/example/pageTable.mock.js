@@ -11,7 +11,9 @@ Mock.mock(/\/example\/getPageData/, {
         '刘德华'
       ],
       'date': '@date("yyyy-MM-dd")',
-      'address': '上海市普陀区金沙江路 1518 弄'
+      'address': '上海市普陀区金沙江路 1518 弄',
+      'sex|+1': ['男', '女'],
+      'age|+1': [20, 30, 40, 19]
     }
   ],
   'total|100': 100
