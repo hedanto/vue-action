@@ -74,7 +74,7 @@
   @import "../../../common/scss/index";
 
   .header-wrapper {
-    z-index: 1;
+    z-index: 1000;
     $img-size:44px;
     $img-margin:($header-height - $img-size - 10px)/2 0px;
     height: $header-height;

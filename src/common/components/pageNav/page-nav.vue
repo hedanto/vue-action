@@ -2,7 +2,7 @@
   <div class="page-nav-wrapper">
     <div class="page-nav-title">
       <el-breadcrumb separator="/" v-if="!navTitle">
-        <el-breadcrumb-item v-if="showPrevious" :to="{ name: previousNav.name, params: previousNav.params}">
+        <el-breadcrumb-item v-if="showPrevious && previousNav.desc" :to="{ name: previousNav.name, params: previousNav.params}">
          <i class="anticon icon-leftcircleo"></i> {{previousNav.desc}}
         </el-breadcrumb-item>
         <el-breadcrumb-item>{{curNavName}}</el-breadcrumb-item>
@@ -10,11 +10,11 @@
       <span>{{navTitle}}</span>
     </div>
     <div class="page-nav-right">
-      <div class="page-nav-tip">
-        <slot name="nav-tip"></slot>
-      </div>
       <div class="page-nav-toolbar">
         <slot name="nav-toolbar"></slot>
+      </div>
+      <div class="page-nav-tip">
+        <slot name="nav-tip"></slot>
       </div>
     </div>
   </div>
@@ -60,7 +60,7 @@
                 params: {}
               };
             }
-          } else {
+          } else if (this.$store.state.previousRouter && this.$store.state.previousRouter.name) {
             let route = routerMap[this.$store.state.previousRouter.name];
             pnav = {
               desc: route.desc,
@@ -87,6 +87,7 @@
     padding: $context-header-y-padding $context-header-x-padding;
     line-height: 36px;
     border-bottom: 1px solid $border-color;
+    height: 61px;
     @include clearfix;
     .page-nav-title {
       float: left;
@@ -108,6 +109,7 @@
         float: right;
       }
       .page-nav-toolbar{
+        padding-left: 10px;
         float: right;
       }
     }

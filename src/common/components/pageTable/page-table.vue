@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-loading="loading">
+  <div class="tableWrapper">
+    <div v-loading="loading" ref="tableWrapper">
       <el-table  ref="elTable"
         :data="tableData"
         :width="width"
@@ -168,19 +168,25 @@
       }
     },
     mounted () {
+      this.$refs.tableWrapper.style.width = this.$refs.tableWrapper.clientWidth + 'px';
       this._setPageData(this.currentPage);
     }
   };
 </script>
 
-<style lang="scss" rel="stylesheet/scss" scoped>
+<style lang="scss" rel="stylesheet/scss">
   @import "../../scss/mixin";
-  .table-page-wrapper{
-    @include clearfix;
-    padding: 15px 0px;
-    > div {
-      float: right;
-      padding: 0px;
+  .tableWrapper{
+    .table-page-wrapper {
+      @include clearfix;
+      padding: 15px 0px;
+      > div {
+        float: right;
+        padding: 0px;
+      }
+    }
+    .el-table__fixed-right{
+      right: 1px !important;
     }
   }
 </style>

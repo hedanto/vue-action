@@ -6,7 +6,7 @@
     </section>
     <section class="code-box-meta markdown">
       <div class="code-box-title"><a>{{ title }}</a></div>
-      <div><p v-html="describe"></p></div>
+      <div><p v-if="describeHtml" v-html="describeHtml"></p><p v-if="!describeHtml">{{describe}}</p></div>
       <span class="collapse anticon anticon-circle-o-right" @click="handleOpen"></span>
     </section>
     <section class="highlight-wrapper" :class="{'highlight-wrapper-expand': open}">
@@ -39,6 +39,10 @@
       describe: {
         type: String,
         default: ' '
+      },
+      describeHtml: {
+        type: String,
+        default: ''
       },
       html: String,
       js: String,
