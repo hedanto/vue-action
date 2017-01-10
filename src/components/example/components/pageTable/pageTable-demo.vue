@@ -9,7 +9,7 @@
     </pl-content-box-title>
     <pl-content-box-block>
        <pl-code-box title = "分页表格列子"
-                    describe="简单的分页功能的展示,其他基本功能和Element UI的表格组件(elTable)功能一样请参考 <a target='_blank' class='link' href='http://element.eleme.io/#/zh-CN/component/table'>文档 </a>。"
+                    describe-html="简单的分页功能的展示,其他基本功能和Element UI的表格组件(elTable)功能一样请参考 <a target='_blank' class='link' href='http://element.eleme.io/#/zh-CN/component/table'>文档 </a>。"
                     :html="html"
                     :js="js">
          <el-button type="primary" @click="reload">刷新</el-button>
@@ -75,16 +75,14 @@ let js =
 export default {
   data () {
     return {
-      getPageData: this.$api.pageTable.getPageData,
-      js,
-      html
+      getPageData: this.$api.pageTable.getPageData
     };
   },
   methods: {
     reload () {
       let params = {
-      param1: 1,
-      param2: 2
+        param1: 1,
+        param2: 2
       };
       this.$refs.pageTable.reload(params);
     }

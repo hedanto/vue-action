@@ -20,8 +20,10 @@
   };
 </script>
 
-<style lang="scss" rel="stylesheet/scss" scoped>
-
+<style lang="scss" rel="stylesheet/scss">
+  body{
+    background: url(../../common/img/bg.jpg) repeat;
+  }
 </style>
 
 

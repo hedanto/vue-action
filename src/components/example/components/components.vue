@@ -17,6 +17,9 @@
             resName: '图标', stateName: 'example.components.icons'
           },
           {
+            resName: '综合实列', stateName: 'example.components.integrate'
+          },
+          {
             resName: '布局组件',
             children: [
               {resName: '页头(header)', stateName: 'example.components.header'}

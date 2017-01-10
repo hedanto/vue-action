@@ -1,0 +1,129 @@
+<template>
+  <pl-content-box>
+    <pl-page-nav :show-previous="true">
+    </pl-page-nav>
+    <pl-content-box-block>
+      <pl-content-box-card>
+        <el-form label-width="100px"  :model="form" ref="form">
+          <el-row>
+
+            <el-col :span="12">
+              <el-form-item label="姓名" prop="name" :rules="[
+                  { required: true, message: '输入姓名', trigger: 'change' }
+                ]">
+                <el-input v-model="form.name" placeholder="输入姓名"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="日期"  prop="date" :rules="[
+                  { required: true, message: '选择日期', trigger: 'change' }
+                ]">
+                <el-date-picker v-model="date" type="date" placeholder="选择日期"></el-date-picker>
+              </el-form-item>
+            </el-col>
+
+            <el-col :span="12">
+              <el-form-item label="性别" prop="sex" :rules="[
+                  { required: true, message: '选择性别', trigger: 'change' }
+                ]">
+                <el-select v-model="form.sex" clearable placeholder="选择性别">
+                  <el-option
+                    v-for="item in options"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="年龄" prop="age" :rules="[
+                  { required: true, type: 'number' ,message: '输入年龄', trigger: 'change' }
+                ]">
+                <el-input-number v-model="form.age" placeholder="输入年龄"></el-input-number>
+              </el-form-item>
+            </el-col>
+            <el-col :span="24">
+              <el-form-item label="地址">
+                <el-input v-model="form.address" placeholder="输入地址"></el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </el-form>
+      </pl-content-box-card>
+    </pl-content-box-block>
+    <pl-affix :offset-bottom="0">
+        <pl-content-box-toolbar class="text-center" :border="false">
+          <el-button type="primary" icon=" anticon icon-save" @click="save">保存</el-button>
+          <el-button  icon=" anticon icon-arrowleft">返回</el-button>
+        </pl-content-box-toolbar>
+     </pl-affix>
+  </pl-content-box>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        form: {
+          date: '1985-09-03',
+          name: '',
+          address: '',
+          sex: '',
+          age: ''
+        },
+        options: [{
+          value: '1',
+          label: '男'
+        }, {
+          value: '2',
+          label: '女'
+        }]
+      };
+    },
+    computed: {
+      date: {
+        get: function () {
+          return this.form.date ? new Date(this.form.date) : undefined;
+        },
+        set: function (newValue) {
+          console.info(newValue);
+          if (newValue) {
+            this.form.date = '222';
+          } else {
+            this.form.date = '';
+          }
+        }
+      }
+    },
+    methods: {
+      save () {
+        let vm = this;
+        this.$refs['form'].validate((valid) => {
+          if (valid) {
+            console.info(vm.form.date);
+            console.info('submit!');
+          } else {
+            return false;
+          }
+        });
+      }
+    },
+    created () {
+      if (this.$route.params.id) {
+        let vm = this;
+        this.$api.inegrate.getData(this.$route.params).then(ret => {
+          console.info('----------------------');
+          console.info(ret);
+          vm.form = ret;
+          // vm.form.date = new Date(ret.date);
+        });
+      }
+    }
+  };
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+
+</style>
+
+
