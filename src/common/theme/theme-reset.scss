@@ -1,0 +1,24 @@
+@import "../scss/variables";
+.el-form-item__content{
+  line-height: normal !important;
+}
+
+.el-breadcrumb__item:last-child .el-breadcrumb__item__inner, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner:hover, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a:hover{
+  color: inherit !important;
+}
+
+.el-pagination__sizes{
+  margin: 0 0 0 10px !important;
+}
+
+.el-dialog__footer{
+  border-top: 1px solid $border-color !important;
+  padding:12px 30px !important;
+}
+.el-dialog__header{
+  padding: 20px !important;
+  border-bottom: 1px solid $border-color !important;
+}
+.static-form .el-form-item{
+  margin: 0px !important;
+}

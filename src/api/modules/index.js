@@ -1,9 +1,9 @@
 import test from './test.api';
 import pageTable from './example/pageTable.api';
-import inegrate from './example/inegrate.api';
+import integrate from './example/integrate.api';
 
 export default {
   test, // （缩写）相当于 test:test
   pageTable,
-  inegrate
+  integrate
 };

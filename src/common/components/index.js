@@ -7,6 +7,7 @@ import BackTop from './backTop';
 import ApiTable from './apiTable';
 import CodeBox from './codeBox';
 import PageTable from './pageTable';
+import DatePicker from './datePicker';
 
 const install = function (Vue, opts = {}) {
   /* istanbul ignore if */
@@ -21,8 +22,13 @@ const install = function (Vue, opts = {}) {
   Vue.component(CodeBox.name, CodeBox);
   Vue.component(PageTable.name, PageTable);
 
-  for (var key in Layout) {
+  for (let key in Layout) {
     let component = Layout[key];
+    Vue.component(component.name, component);
+  }
+
+  for (let key in DatePicker) {
+    let component = DatePicker[key];
     Vue.component(component.name, component);
   }
 };
@@ -38,6 +44,7 @@ export default {
   Header,
   Menu,
   ...Layout,
+  ...DatePicker,
   Affix,
   BackTop,
   ApiTable,

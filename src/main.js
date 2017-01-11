@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App';
 import ElementUI from 'element-ui';
 import 'common/theme/index.css';
-import 'common/theme/theme-reset.css';
+import 'common/theme/theme-reset.scss';
 import 'common/iconFont/iconfont.css';
 import router from 'common/js/router';
 import store from './store';

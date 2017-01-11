@@ -18,7 +18,7 @@
               <el-form-item label="日期"  prop="date" :rules="[
                   { required: true, message: '选择日期', trigger: 'change' }
                 ]">
-                <el-date-picker v-model="date" type="date" placeholder="选择日期"></el-date-picker>
+                <pl-date-picker v-model="form.date"  placeholder="选择日期"></pl-date-picker>
               </el-form-item>
             </el-col>
 
@@ -54,7 +54,7 @@
     <pl-affix :offset-bottom="0">
         <pl-content-box-toolbar class="text-center" :border="false">
           <el-button type="primary" icon=" anticon icon-save" @click="save">保存</el-button>
-          <el-button  icon=" anticon icon-arrowleft">返回</el-button>
+          <el-button  icon=" anticon icon-arrowleft" @click="goBack">返回</el-button>
         </pl-content-box-toolbar>
      </pl-affix>
   </pl-content-box>
@@ -65,7 +65,7 @@
     data () {
       return {
         form: {
-          date: '1985-09-03',
+          date: '',
           name: '',
           address: '',
           sex: '',
@@ -80,42 +80,27 @@
         }]
       };
     },
-    computed: {
-      date: {
-        get: function () {
-          return this.form.date ? new Date(this.form.date) : undefined;
-        },
-        set: function (newValue) {
-          console.info(newValue);
-          if (newValue) {
-            this.form.date = '222';
-          } else {
-            this.form.date = '';
-          }
-        }
-      }
-    },
     methods: {
       save () {
         let vm = this;
         this.$refs['form'].validate((valid) => {
           if (valid) {
-            console.info(vm.form.date);
+            console.info(vm.form);
             console.info('submit!');
           } else {
             return false;
           }
         });
+      },
+      goBack () {
+        this.$router.push({name: 'example.components.integrate'});
       }
     },
     created () {
       if (this.$route.params.id) {
         let vm = this;
-        this.$api.inegrate.getData(this.$route.params).then(ret => {
-          console.info('----------------------');
-          console.info(ret);
+        this.$api.integrate.getData(this.$route.params).then(ret => {
           vm.form = ret;
-          // vm.form.date = new Date(ret.date);
         });
       }
     }
