@@ -1,11 +1,8 @@
-import tooltip from './tooltip'
-
-export function install (Vue) {
-  Vue.directive('tooltip', tooltip)
-}
-
-export const tooltip = tooltip
-
+import tooltip from './tooltip';
+import './tooltip.css';
 export default {
-  install
-}
+  install (Vue) {
+    Vue.use(tooltip);
+  },
+  tooltip
+};

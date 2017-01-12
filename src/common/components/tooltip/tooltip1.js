@@ -1,12 +1,20 @@
 let tipVm;
+const camelizeRE = /-(\w)/g;
+const toUpper = function (_, c) {
+  return c ? c.toUpperCase() : '';
+};
+
+function camelize (str) {
+  return str.replace(camelizeRE, toUpper);
+}
 let addStyle = (el, clsObj) => {
   Object.keys(clsObj).forEach(name => {
-    el.style[camelize(name)] = clsObj[name]
-  })
+    el.style[camelize(name)] = clsObj[name];
+  });
 };
 
 export default {
-  install(Vue, options){
+  install (Vue, options) {
     // tip组件模板
     const TipComponent = Vue.extend({
       template: `
@@ -18,15 +26,15 @@ export default {
                 </div>`
     });
 
-    const tooltip = Vue.directive('tooltip', {
-      openTrigger:'mouseenter',
-      closeTrigger:'mouseleave',
-      leftFactor:0.5, // 默认水平位置系数
-      topFactor:0.5, // 默认垂直位置系数
+    Vue.directive('tooltip', {
+      openTrigger: 'mouseenter',
+      closeTrigger: 'mouseleave',
+      leftFactor: 0.5, // 默认水平位置系数
+      topFactor: 0.5, // 默认垂直位置系数
       bind: function () {
         // 准备工作
         // 识别触发事件
-        if (this.arg === 'focus'){
+        if (this.arg === 'focus') {
           this.openTrigger = 'focus';
           this.closeTrigger = 'blur';
         }
@@ -35,14 +43,14 @@ export default {
         this.place = Object.keys(this.modifiers)[0] || 'top';
 
         // 设置位置系数
-        if (this.place.toUpperCase().includes('LEFT')){
+        if (this.place.toUpperCase().includes('LEFT')) {
           this.leftFactor = 0;
-        } else if (this.place.toUpperCase().includes('RIGHT')){
+        } else if (this.place.toUpperCase().includes('RIGHT')) {
           this.leftFactor = 1;
         }
-        if (this.place.toUpperCase().includes('TOP')){
+        if (this.place.toUpperCase().includes('TOP')) {
           this.topFactor = 0;
-        } else if (this.place.toUpperCase().includes('BOTTOM')){
+        } else if (this.place.toUpperCase().includes('BOTTOM')) {
           this.topFactor = 1;
         }
 
@@ -75,24 +83,24 @@ export default {
           y += parseInt(ele.offsetTop, 10);
           ele = ele.offsetParent;
         }
-        return { top: y, left: x };
+        return {top: y, left: x};
       },
       /**
        * 显示方法
        */
       open: function () {
-        setTimeout(()=> {
-          if(!this.el) return;
+        setTimeout(() => {
+          if (!this.el) return;
           const offset = this.getOffset(this.el);
           const eleWidth = this.el.offsetWidth;
           const eleHeight = this.el.offsetHeight;
 
           // 创建一个新的tip组件实例,插入到body中
           tipVm = this.vm = new TipComponent({
-            data : {
-              tip : this.value, // 支持html内容
+            data: {
+              tip: this.value, // 支持html内容
               show: true,
-              place : this.place
+              place: this.place
             }
           }).$mount().$appendTo('body');
 
@@ -111,15 +119,13 @@ export default {
             left: `${offset.left + (eleWidth * this.leftFactor)}px`,
             top: `${offset.top + (eleHeight * this.topFactor)}px`
           });
-
-        },100)
-
+        }, 100);
       },
       /**
        * 关闭方法
        */
       close: function () {
-        if (this.vm){
+        if (this.vm) {
           // 延时关闭,给tip本身的鼠标事件留出时间
           this.closeTimer = setTimeout(() => {
             // show设置为false,触发view改变
@@ -129,4 +135,4 @@ export default {
       }
     });
   }
-}
+};

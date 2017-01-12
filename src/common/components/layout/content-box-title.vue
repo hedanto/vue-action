@@ -4,11 +4,11 @@
       <span><slot></slot></span>
     </div>
     <div class="content-box-title-right">
-      <div class="content-box-title-tip">
-        <slot name="tip"></slot>
-      </div>
       <div class="content-box-title-toolbar">
         <slot name="toolbar"></slot>
+      </div>
+      <div class="content-box-title-tip">
+        <slot name="tip"></slot>
       </div>
     </div>
   </div>
@@ -47,6 +47,7 @@
       }
       .content-box-title-toolbar{
         float: right;
+        padding-left: 10px;
       }
     }
   }

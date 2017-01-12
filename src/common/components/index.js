@@ -8,6 +8,7 @@ import ApiTable from './apiTable';
 import CodeBox from './codeBox';
 import PageTable from './pageTable';
 import DatePicker from './datePicker';
+import Tooltip from './tooltip';
 
 const install = function (Vue, opts = {}) {
   /* istanbul ignore if */
@@ -31,6 +32,8 @@ const install = function (Vue, opts = {}) {
     let component = DatePicker[key];
     Vue.component(component.name, component);
   }
+
+  Vue.use(Tooltip);
 };
 
 /* istanbul ignore if */
@@ -49,5 +52,6 @@ export default {
   BackTop,
   ApiTable,
   CodeBox,
-  PageTable
+  PageTable,
+  Tooltip
 };

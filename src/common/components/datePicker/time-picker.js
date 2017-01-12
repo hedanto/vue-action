@@ -3,10 +3,5 @@ import config from '../config';
 import {TimePicker} from 'element-ui';
 export default {
   mixins: [TimePicker, Picker],
-  name: config.prefix + 'TimePicker',
-  props: {
-    props: {
-      isRange: Boolean
-    }
-  }
+  name: config.prefix + 'TimePicker'
 };
