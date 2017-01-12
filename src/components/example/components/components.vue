@@ -22,13 +22,15 @@
           {
             resName: '布局组件',
             children: [
-              {resName: '页头(header)', stateName: 'example.components.header'}
+              {resName: '页头(header)', stateName: 'example.components.header'},
+              {resName: '基本布局组件', stateName: 'example.components.layout'}
             ]
           },
           {
             resName: '数据组件',
             children: [
-              {resName: '分页表格(pageTable)', stateName: 'example.components.pageTable'}
+              {resName: '分页表格(pageTable)', stateName: 'example.components.pageTable'},
+              {resName: '日期组件(datePicker)', stateName: 'example.components.datePicker'}
             ]
           },
           {

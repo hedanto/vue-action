@@ -6,7 +6,6 @@
       <pl-content-box-card>
         <el-form label-width="100px"  :model="form" ref="form">
           <el-row>
-
             <el-col :span="12">
               <el-form-item label="姓名" prop="name" :rules="[
                   { required: true, message: '输入姓名', trigger: 'change' }
@@ -18,7 +17,7 @@
               <el-form-item label="日期"  prop="date" :rules="[
                   { required: true, message: '选择日期', trigger: 'change' }
                 ]">
-                <pl-date-picker v-model="form.date"  placeholder="选择日期"></pl-date-picker>
+                <pl-date-picker v-model="form.date"   placeholder="选择日期"></pl-date-picker>
               </el-form-item>
             </el-col>
 
@@ -53,7 +52,7 @@
     </pl-content-box-block>
     <pl-affix :offset-bottom="0">
         <pl-content-box-toolbar class="text-center" :border="false">
-          <el-button type="primary" icon=" anticon icon-save" @click="save">保存</el-button>
+          <el-button type="primary" icon=" anticon icon-save" :loading="loading" @click="save">保存</el-button>
           <el-button  icon=" anticon icon-arrowleft" @click="goBack">返回</el-button>
         </pl-content-box-toolbar>
      </pl-affix>
@@ -77,7 +76,8 @@
         }, {
           value: '2',
           label: '女'
-        }]
+        }],
+        loading: false
       };
     },
     methods: {
@@ -85,8 +85,14 @@
         let vm = this;
         this.$refs['form'].validate((valid) => {
           if (valid) {
-            console.info(vm.form);
-            console.info('submit!');
+            vm.loading = true;
+            vm.$api.integrate.saveData(this.form).then(ret => {
+              setTimeout(() => {
+                vm.loading = false;
+                console.info('submit!');
+                vm.goBack();
+              }, 500);
+            });
           } else {
             return false;
           }

@@ -13,11 +13,10 @@
     </pl-page-nav>
     <pl-content-box-toolbar>
       <el-form label-width="80px" >
-        {{params.date}}
         <el-row>
           <el-col :span="8">
             <el-form-item label="日期">
-              <pl-date-picker v-model="params.time"  placeholder="选择日期"></pl-date-picker>
+              <pl-date-picker  v-model="params.date" placeholder="选择日期"></pl-date-picker>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -64,7 +63,7 @@
         <el-table-column  prop="sex" label="操作" width="130" fixed="right">
           <template scope="scope">
             <el-button-group>
-              <el-button size="small" icon=" anticon icon-ellipsis" @click="handleInfo(scope.$index,scope.row)">
+              <el-button size="small"  icon=" anticon icon-ellipsis" @click="handleInfo(scope.$index,scope.row)">
               </el-button>
               <el-button size="small" icon=" anticon icon-edit" @click="handleEdit(scope.$index,scope.row)"></el-button>
               <el-button size="small" icon=" anticon icon-delete" @click="handleDelete(scope.$index,scope.row)"></el-button>
@@ -98,7 +97,8 @@
         }, {
           value: '2',
           label: '女'
-        }]
+        }],
+        msg: 'qweqwe'
       };
     },
     components: {

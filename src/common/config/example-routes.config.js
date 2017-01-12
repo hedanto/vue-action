@@ -118,6 +118,22 @@ const routes = [
             component (resolve) {
               require(['components/example/components/integrate/integrate-edit-demo.vue'], resolve);
             }
+          },
+          {
+            desc: '日期组件datePicker',
+            name: 'example.components.datePicker',
+            path: 'datePicker',
+            component (resolve) {
+              require(['components/example/components/datePicker/date-picker-demo.vue'], resolve);
+            }
+          },
+          {
+            desc: '基本布局组件',
+            name: 'example.components.layout',
+            path: 'layout',
+            component (resolve) {
+              require(['components/example/components/layout/layout-demo.vue'], resolve);
+            }
           }
         ]
       }
