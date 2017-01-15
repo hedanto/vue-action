@@ -51,9 +51,11 @@
                 <p>这里是内容块</p>
               </div>
             </pl-content-box-block>
-            <pl-content-box-toolbar class="text-center" :border="false">
-              <el-button type="primary">按钮</el-button><el-button>按钮</el-button>
-            </pl-content-box-toolbar>
+            <pl-affix :offset-bottom="0">
+              <pl-content-box-toolbar class="text-center" :border="false">
+                <el-button type="primary">按钮</el-button><el-button>按钮</el-button>
+              </pl-content-box-toolbar>
+            </pl-affix>
           </pl-content-box>
         </div>
       </pl-code-box>
@@ -120,9 +122,11 @@
         <p>这里是内容块</p>
       </div>
     </pl-content-box-block>
-    <pl-content-box-toolbar class="text-center" :border="false">
-       <el-button type="primary">按钮</el-button><el-button>按钮</el-button>
-    </pl-content-box-toolbar>
+    <pl-affix :offset-bottom="0">
+      <pl-content-box-toolbar class="text-center" :border="false">
+         <el-button type="primary">按钮</el-button><el-button>按钮</el-button>
+      </pl-content-box-toolbar>
+    </pl-affix>
   </pl-content-box>
   `;
   let css = ``;

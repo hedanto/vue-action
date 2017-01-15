@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import {MsgType} from '../common/js/constants';
-import router from 'common/js/router';
+import router from '../router';
 import Store from '../store';
 import {Notification} from 'element-ui';
 

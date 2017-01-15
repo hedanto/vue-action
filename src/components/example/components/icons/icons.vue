@@ -8,6 +8,8 @@
         <i class="icon anticon icon-stepforward"></i>
         <i class="icon anticon icon-forward"></i>
         <i class="icon anticon icon-caretup"></i>
+
+        <el-button size="small"  icon=" anticon icon-save">保存</el-button>
       </pl-code-box>
 
       <div class="markdown">
@@ -1241,12 +1243,14 @@
   let html =
   `<i class="anticon icon-stepforward"></i>
   <i class="anticon icon-forward"></i>
-  <i class="anticon icon-caretup"></i>`;
+  <i class="anticon icon-caretup"></i>
+  <el-button size="small"  icon=" anticon icon-save">保存</el-button>`;
   export default {
     data () {
       return {
         html: html,
-        describe: '挑选相应图标并获取类名，应用于页面: <i class="anticon icon-xxx"></i>'
+        describe: `挑选相应图标并获取类名，应用于页面: <i class="anticon icon-xxx"></i>；如果是结合el-button 使用在前面加多个空格
+        <el-button size="small"  icon="    anticon icon-xxx">保存</el-button>`
       };
     }
   };

@@ -60,7 +60,7 @@
         <el-table-column  prop="address" label="地址" width="350"></el-table-column>
         <el-table-column  prop="age" label="年龄" width="120"></el-table-column>
         <el-table-column  prop="sex" label="性别" width="120"></el-table-column>
-        <el-table-column  prop="sex" label="操作" width="130" fixed="right">
+        <el-table-column  prop="sex" label="操作" width="150" fixed="right" align="center" header-align="center">
           <template scope="scope">
             <el-button-group>
               <el-button size="small"  icon=" anticon icon-ellipsis" @click="handleInfo(scope.$index,scope.row)">

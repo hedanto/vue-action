@@ -103,7 +103,7 @@
       }
     },
     created () {
-      if (this.$route.params.id) {
+      if (this.$route.params.id !== undefined) {
         let vm = this;
         this.$api.integrate.getData(this.$route.params).then(ret => {
           vm.form = ret;

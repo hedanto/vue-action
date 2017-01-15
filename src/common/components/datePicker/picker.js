@@ -62,7 +62,7 @@ export default {
             value = moment(value, format)._d;
           }
         }
-        this.internalValue = value;
+        this.currentValue = value;
       }
     }
   }

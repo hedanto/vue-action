@@ -33,6 +33,7 @@
         @expand="_handleSortEvents('expand')"
         @sort-change="_handleSortChange"
         style="width: 100%">
+        <el-table-column v-if="showNumber" type="index" width="70" label="序号" align="center" header-align="center"></el-table-column>
         <slot></slot>
       </el-table>
       <div class="table-page-wrapper">
@@ -61,6 +62,10 @@
           return [];
         }
       },
+      showNumber: {
+        type: Boolean,
+        default: true
+      },
       pageSizes: {
         type: Array,
         default () {
@@ -87,8 +92,14 @@
         type: Boolean,
         default: true
       },
-      stripe: Boolean,
-      border: Boolean,
+      stripe: {
+        type: Boolean,
+        default: true
+      },
+      border: {
+        type: Boolean,
+        default: true
+      },
       rowKey: [String, Function],
       context: {},
       showHeader: {
@@ -186,7 +197,7 @@
       }
     }
     .el-table__fixed-right{
-      right: 1px !important;
+      right: 0px !important;
     }
   }
 </style>

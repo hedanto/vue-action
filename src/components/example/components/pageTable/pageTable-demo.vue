@@ -94,6 +94,7 @@ export default {
     ['data-fun', '获取数据的异步方法，接受参数{pageSize:Number, pageNo:Number},返回promise', 'Function', '无'],
     ['page-sizes', '每页显示个数选择器的选项设置', 'Number[]', '[10, 20, 30, 40, 50]'],
     ['page-size', '每页显示条目个数', 'Number', '10'],
+    ['show-number', '是否显示序号', 'Boolean', 'true'],
     ['params', '默认过滤参数，如果想配置默认排序可以配置{sortName:"排序字段名",sortType:"asc|desc"}', 'string', '无']
   ];
 
