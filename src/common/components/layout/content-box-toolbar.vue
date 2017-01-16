@@ -17,8 +17,10 @@
 
 <style lang="scss" rel="stylesheet/scss">
   @import "../../scss/variables";
+  @import "../../scss/mixin";
   .content-box-toolbar-wrapper{
     padding: 12px 30px 0px;
+    @include clearfix;
     &.border{
       border-bottom: 1px solid $border-color;
     }
@@ -31,9 +33,14 @@
     .el-input-number{
       width: auto !important;
     }
-    .el-button {
+    > .pull-left,
+    > .pull-right,
+    > .el-button,
+    > .el-input,
+    > .el-input-group{
       margin-bottom: 12px !important;
     }
+
   }
   .ivu-affix .content-box-toolbar-wrapper{
     background: #fff;

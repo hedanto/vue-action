@@ -1,6 +1,5 @@
 import {MsgType, SystemMode} from '../../common/js/constants';
 import Mock from 'mockjs';
-import './test.mock';
 import './example';
 // 模拟登录数据
 Mock.mock(/\/auth\/login/, {

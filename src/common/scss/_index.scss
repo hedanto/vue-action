@@ -56,15 +56,21 @@ a.link {
 .no-margin{
   margin: 0px !important;
 }
+.no-padding{
+  padding: 0px !important;
+}
+
 
 /**
 对齐
  */
 .pull-right {
   float: right !important;
+  @include clearfix;
 }
 .pull-left {
   float: left !important;
+  @include clearfix;
 }
 
 /**

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="container">
     <div class="main-wrapper">
       <div class="main-left">
         <slot name="left"></slot>
@@ -23,7 +23,6 @@
   @import "../../scss/index";
 
   .main-wrapper {
-    @extend .container;
     border: 1px solid $border-color;
     background-color: $main-background-color;
     margin-top: 90px;
