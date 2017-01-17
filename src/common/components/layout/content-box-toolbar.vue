@@ -1,5 +1,6 @@
 <template>
-  <div class="content-box-toolbar-wrapper" :class="{'border': border}"><slot></slot></div>
+  <div class="content-box-toolbar-wrapper"
+       :class="borderClass"><slot></slot></div>
 </template>
 
 <script>
@@ -8,8 +9,22 @@
     name: config.prefix + 'ContentBoxToolbar',
     props: {
       border: {
-        type: Boolean,
+        type: [Boolean, String],
         default: true
+      }
+    },
+    computed: {
+      borderClass () {
+        let classObj = {
+          top: 'border-top',
+          bottom: 'border-bottom'
+        };
+
+        if (this.border === false) {
+          return '';
+        }
+
+        return classObj[this.border] ? classObj[this.border] : 'border-bottom';
       }
     }
   };
@@ -21,7 +36,10 @@
   .content-box-toolbar-wrapper{
     padding: 12px 30px 0px;
     @include clearfix;
-    &.border{
+    &.border-top{
+      border-top: 1px solid $border-color;
+    }
+    &.border-bottom{
       border-bottom: 1px solid $border-color;
     }
     .el-form-item{

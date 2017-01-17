@@ -28,7 +28,7 @@
       width: 100% !important;
     }
     .el-form {
-      width: 750px;
+      max-width: 750px;
       margin: 0px auto;
       padding-right : 40px;
     }
