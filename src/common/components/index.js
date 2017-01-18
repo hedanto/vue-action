@@ -9,6 +9,7 @@ import CodeBox from './codeBox';
 import PageTable from './pageTable';
 import DatePicker from './datePicker';
 import Tooltip from './tooltip';
+import EmptyTip from './emptyTip';
 
 const install = function (Vue, opts = {}) {
   /* istanbul ignore if */
@@ -22,6 +23,7 @@ const install = function (Vue, opts = {}) {
   Vue.component(ApiTable.name, ApiTable);
   Vue.component(CodeBox.name, CodeBox);
   Vue.component(PageTable.name, PageTable);
+  Vue.component(EmptyTip.name, EmptyTip);
 
   for (let key in Layout) {
     let component = Layout[key];
@@ -53,5 +55,6 @@ export default {
   ApiTable,
   CodeBox,
   PageTable,
-  Tooltip
+  Tooltip,
+  EmptyTip
 };
