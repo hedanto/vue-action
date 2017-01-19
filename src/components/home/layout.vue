@@ -1,5 +1,5 @@
 <template>
-  <pl-layout>
+  <pl-layout class="layout-contianer">
     <pl-menu slot="left" :menus="subMenus"></pl-menu>
     <router-view slot="right"></router-view>
   </pl-layout>

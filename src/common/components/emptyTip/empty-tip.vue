@@ -8,16 +8,28 @@
 
 <script>
   import config from '../config';
+  const iconClass = {
+    info: 'anticon icon-infocirlce text-info',
+    error: 'anticon icon-closecircle text-danger',
+    waring: 'anticon icon-exclamationcircle text-warning',
+    success: 'anticon icon-checkcircle text-success'
+  };
   export default {
     name: config.prefix + 'EmptyTip',
     props: {
-      iconClass: {
+      type: {
         type: String,
-        default: 'anticon icon-exclamationcircle text-warning'
+        default: 'info',
+        required: true
       },
       text: {
         type: String,
         default: '暂时没有数据！'
+      }
+    },
+    computed: {
+      iconClass () {
+        return iconClass[this.type];
       }
     }
 

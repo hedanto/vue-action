@@ -18,14 +18,16 @@
     border: 1px solid $border-color;
     padding: 15px;
 
-    .el-input{
-      width: 100% !important;
-    }
-    .el-select {
-      width: 100% !important;
-    }
-    .el-input-number{
-      width: 100% !important;
+    .el-form-item {
+      .el-input{
+       //  width: 100% !important;
+      }
+      .el-select {
+        width: 100% !important;
+      }
+      .el-input-number{
+        width: 100% !important;
+      }
     }
     .el-form {
       max-width: 750px;

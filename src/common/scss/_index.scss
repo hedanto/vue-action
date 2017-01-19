@@ -59,6 +59,19 @@ a.link {
 .no-padding{
   padding: 0px !important;
 }
+.no-border {
+  border-width: 0px !important;
+}
+
+.layout-contianer{
+  margin-top: 90px;
+  margin-bottom: 30px;
+  @extend .container;
+  min-height: 700px;
+  > .main-left {
+    height: 700px;
+  }
+}
 
 
 /**
@@ -114,7 +127,7 @@ a.link {
   color: $success-color;
 }
 .text-info {
-  color: $success-color;
+  color: $info-color;
 }
 .text-warning {
   color: $warning-color;

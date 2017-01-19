@@ -110,7 +110,7 @@
           line-height: $img-size;
           float: left;
           padding-left: 15px;
-          font-size: 30px;
+          font-size: 20px;
           margin: $img-margin;
         }
       }

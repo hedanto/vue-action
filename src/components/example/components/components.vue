@@ -1,5 +1,5 @@
 <template>
-  <pl-layout>
+  <pl-layout class="layout-contianer">
     <pl-menu slot="left" :menus="subMenus"></pl-menu>
     <router-view slot="right"></router-view>
   </pl-layout>
@@ -37,7 +37,8 @@
             resName: '其他组件',
             children: [
               {resName: '锚点(affix)', stateName: 'example.components.affix'},
-              {resName: '返回顶部(backTop)', stateName: 'example.components.backTop'}
+              {resName: '返回顶部(backTop)', stateName: 'example.components.backTop'},
+              {resName: '消息提示(empty-tip)', stateName: 'example.components.empty-tip'}
             ]
           },
           {

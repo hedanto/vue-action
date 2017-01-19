@@ -134,6 +134,14 @@ const routes = [
             component (resolve) {
               require(['components/example/components/layout/layout-demo.vue'], resolve);
             }
+          },
+          {
+            desc: '消息提示',
+            name: 'example.components.empty-tip',
+            path: 'empty-tip',
+            component (resolve) {
+              require(['components/example/components/emptyTip/empty-tip.vue'], resolve);
+            }
           }
         ]
       }

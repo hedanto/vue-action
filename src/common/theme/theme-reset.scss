@@ -1,7 +1,13 @@
 @import "../scss/variables";
+.line-height-36 {
+  .el-form-item__content{
+    line-height: 36px !important;
+  }
+}
 .el-form-item__content{
   line-height: normal !important;
 }
+
 
 .el-breadcrumb__item:last-child .el-breadcrumb__item__inner, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner:hover, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a:hover{
   color: inherit !important;
@@ -18,6 +24,9 @@
 .el-dialog__header{
   padding: 20px !important;
   border-bottom: 1px solid $border-color !important;
+}
+.static-form.el-form {
+  padding-right : 0px !important;
 }
 .static-form .el-form-item{
   margin: 0px !important;
